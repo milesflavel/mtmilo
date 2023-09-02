@@ -1,0 +1,14 @@
+:root {
+  --palette-background: #1f1634;
+  --palatte-text: #ffffff;
+  --palette-accent1: #ff55b3;
+  --palette-accent2: #1df47f;
+  --palette-accent3: #f8dc00;
+  --palette-accent4: #19e9fe;
+  --palette-accent5: #a577fe;
+}
+
+body {
+  background-color: var(--palette-background);
+  color: var(--palatte-text);
+}
