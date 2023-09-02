@@ -17,19 +17,43 @@ const AppBackground = () => (
         width="100"
         height="100"
         patternTransform="scale(4) rotate(0)"
+        stroke-width="2"
+        stroke-linecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        vector-effect="non-scaling-stroke"
       >
         <use href="#BackgroundDebugBounds" />
+
         <use
-          href="#BackgroundShapeSquiggle"
-          stroke="var(--palette-accent2)"
-          x="0"
-          y="0"
+          href="#BackgroundShapeTriangle"
+          stroke="var(--palette-accent1)"
+          transform="translate(10 10) scale(0.1)"
         />
         <use
           href="#BackgroundShapeSquiggle"
+          stroke="var(--palette-accent2)"
+          transform="translate(27 10) scale(0.2)"
+        />
+        <use
+          href="#BackgroundShapeZigzag"
           stroke="var(--palette-accent3)"
-          x="20"
-          y="0"
+          transform="translate(50 10) scale(0.2)"
+        />
+        <use
+          href="#BackgroundShapeSquare"
+          stroke="var(--palette-accent4)"
+          transform="translate(70 10) scale(0.1)"
+        />
+        <use
+          href="#BackgroundShapeCross"
+          stroke="var(--palette-accent5)"
+          transform="translate(90 10) scale(0.1)"
+        />
+        <use
+          href="#BackgroundShapeCircle"
+          stroke="var(--palette-accent3)"
+          transform="translate(10 30) scale(0.1)"
         />
       </pattern>
 
@@ -42,15 +66,62 @@ const AppBackground = () => (
         height="100"
         fill="none"
         stroke="red"
+        stroke-width="0.5"
       ></rect>
 
       {/* Squiggle */}
       <path
         id="BackgroundShapeSquiggle"
-        d="M 5 40 C 20 5, 32.5 5, 47.5 40 S 75 75, 90 40"
-        stroke-width="2"
-        stroke-linecap="round"
-        fill="none"
+        d="M -45 -10
+          c 7.5 0, 7.5 15, 15 15
+          c 7.5 0, 7.5 -15, 15 -15
+          c 7.5 0, 7.5 15, 15 15
+          c 7.5 0, 7.5 -15, 15 -15
+          c 7.5 0, 7.5 15, 15 15
+          c 7.5 0, 7.5 -15, 15 -15"
+        vector-effect="non-scaling-stroke"
+      />
+
+      {/* Zigzag */}
+      <path
+        id="BackgroundShapeZigzag"
+        d="M -45 -10
+          l 15 15, 15 -15, 15 15, 15 -15, 15 15, 15 -15"
+        vector-effect="non-scaling-stroke"
+      />
+
+      {/* Triangle */}
+      <polygon
+        id="BackgroundShapeTriangle"
+        points="0 -50, 50 35, -50 35"
+        vector-effect="non-scaling-stroke"
+      />
+
+      {/* Square */}
+      <rect
+        id="BackgroundShapeSquare"
+        x="-45"
+        y="-45"
+        width="90"
+        height="90"
+        vector-effect="non-scaling-stroke"
+      />
+
+      {/* Cross */}
+      <path
+        id="BackgroundShapeCross"
+        d="M -45 -45 L 45 45
+          M -45 45 L 45 -45"
+        vector-effect="non-scaling-stroke"
+      />
+
+      {/* Circle */}
+      <circle
+        id="BackgroundShapeCircle"
+        cx="0"
+        cy="0"
+        r="45"
+        vector-effect="non-scaling-stroke"
       />
     </defs>
     <rect width="100%" height="100%" fill="url(#BackgroundPattern)"></rect>
