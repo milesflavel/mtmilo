@@ -6,51 +6,121 @@
   <defs>
     <pattern
       id="BackgroundPattern"
-      patternUnits="userSpaceOnUse"
-      width="100"
       height="100"
-      patternTransform="scale(4) rotate(0)"
-      stroke-width="2"
-      stroke-linecap="round"
-      strokeLinejoin="round"
+      width="100"
       fill="none"
+      patternTransform="scale(4) rotate(0)"
+      patternUnits="userSpaceOnUse"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
       vector-effect="non-scaling-stroke"
     >
       <use href="#BackgroundDebugBounds" />
-
+      
+      <!-- Row 1 -->
       <use
-        href="#BackgroundShapeTriangle"
+        href="#BackgroundShapeCross"
         stroke="var(--palette-accent1)"
-        transform="translate(10 10) scale(0.1)"
+        transform="translate(10 10) rotate(0) scale(0.1)"
       />
+      
       <use
-        href="#BackgroundShapeSquiggle"
+        href="#BackgroundShapeCross"
         stroke="var(--palette-accent2)"
-        transform="translate(27 10) scale(0.2)"
+        transform="translate(35 10) rotate(0) scale(0.1)"
       />
+      
       <use
-        href="#BackgroundShapeZigzag"
+        href="#BackgroundShapeCross"
         stroke="var(--palette-accent3)"
-        transform="translate(50 10) scale(0.2)"
+        transform="translate(60 10) rotate(0) scale(0.1)"
       />
+      
       <use
-        href="#BackgroundShapeSquare"
+        href="#BackgroundShapeCross"
         stroke="var(--palette-accent4)"
-        transform="translate(70 10) scale(0.1)"
+        transform="translate(85 10) rotate(0) scale(0.1)"
       />
+      
+      <!-- Row 2 -->
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent3)"
+        transform="translate(10 35) rotate(0) scale(0.1)"
+      />
+      
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent4)"
+        transform="translate(35 35) rotate(0) scale(0.1)"
+      />
+      
       <use
         href="#BackgroundShapeCross"
         stroke="var(--palette-accent5)"
-        transform="translate(90 10) scale(0.1)"
+        transform="translate(60 35) rotate(0) scale(0.1)"
       />
+      
       <use
-        href="#BackgroundShapeCircle"
-        stroke="var(--palette-accent3)"
-        transform="translate(10 30) scale(0.1)"
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent1)"
+        transform="translate(85 35) rotate(0) scale(0.1)"
       />
+      
+      <!-- Row 3 -->
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent5)"
+        transform="translate(10 60) rotate(0) scale(0.1)"
+      />
+      
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent1)"
+        transform="translate(35 60) rotate(0) scale(0.1)"
+      />
+      
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent2)"
+        transform="translate(60 60) rotate(0) scale(0.1)"
+      />
+      
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent3)"
+        transform="translate(85 60) rotate(0) scale(0.1)"
+      />
+      
+      <!-- Row 4 -->
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent2)"
+        transform="translate(10 85) rotate(0) scale(0.1)"
+      />
+      
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent3)"
+        transform="translate(35 85) rotate(0) scale(0.1)"
+      />
+      
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent4)"
+        transform="translate(60 85) rotate(0) scale(0.1)"
+      />
+      
+      <use
+        href="#BackgroundShapeCross"
+        stroke="var(--palette-accent5)"
+        transform="translate(85 85) rotate(0) scale(0.1)"
+      />
+      
     </pattern>
 
-      <!-- Debug Bounds -->
+    <!-- Debug Bounds -->
     <rect
       id="BackgroundDebugBounds"
       x="0"
@@ -62,7 +132,7 @@
       stroke-width="0.5"
     ></rect>
 
-      <!-- Squiggle -->
+    <!-- Squiggle -->
     <path
       id="BackgroundShapeSquiggle"
       d="M -45 -10
@@ -75,7 +145,7 @@
       vector-effect="non-scaling-stroke"
     />
 
-      <!-- Zigzag -->
+    <!-- Zigzag -->
     <path
       id="BackgroundShapeZigzag"
       d="M -45 -10
@@ -83,14 +153,14 @@
       vector-effect="non-scaling-stroke"
     />
 
-      <!-- Triangle -->
+    <!-- Triangle -->
     <polygon
       id="BackgroundShapeTriangle"
       points="0 -50, 50 35, -50 35"
       vector-effect="non-scaling-stroke"
     />
 
-      <!-- Square -->
+    <!-- Square -->
     <rect
       id="BackgroundShapeSquare"
       x="-45"
@@ -100,7 +170,7 @@
       vector-effect="non-scaling-stroke"
     />
 
-      <!-- Cross -->
+    <!-- Cross -->
     <path
       id="BackgroundShapeCross"
       d="M -45 -45 L 45 45
@@ -108,7 +178,7 @@
       vector-effect="non-scaling-stroke"
     />
 
-      <!-- Circle -->
+    <!-- Circle -->
     <circle
       id="BackgroundShapeCircle"
       cx="0"
@@ -117,11 +187,11 @@
       vector-effect="non-scaling-stroke"
     />
 
-      <!-- Cross -->
+    <!-- Chevron -->
     <path
       id="BackgroundShapeChevron"
-      d="M -45 -45 L 45 45
-        M -45 45 L 45 -45"
+      d="M -45 22.5
+        L 0 -22.5 45 22.5"
       vector-effect="non-scaling-stroke"
     />
   </defs>
