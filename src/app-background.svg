@@ -4,6 +4,11 @@
   xmlns="http://www.w3.org/2000/svg"
 >
   <defs>
+    <!--
+      Pattern definition
+      The pattern is just a 4x4 grid of shapes,
+      offset to give the impression of a random scatter
+    -->
     <pattern
       id="BackgroundPattern"
       height="100"
@@ -16,110 +21,119 @@
       stroke-width="2"
       vector-effect="non-scaling-stroke"
     >
-      <use href="#BackgroundDebugBounds" />
+      <!-- <use href="#BackgroundDebugBounds" /> -->
       
       <!-- Row 1 -->
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeTriangle"
         stroke="var(--palette-accent1)"
-        transform="translate(10 10) rotate(0) scale(0.1)"
+        transform="translate(13 16) rotate(100) scale(0.1)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeSquiggle"
         stroke="var(--palette-accent2)"
-        transform="translate(35 10) rotate(0) scale(0.1)"
+        transform="translate(31 13) rotate(130) scale(0.2)"
       />
       
       <use
         href="#BackgroundShapeCross"
         stroke="var(--palette-accent3)"
-        transform="translate(60 10) rotate(0) scale(0.1)"
+        transform="translate(65 12) rotate(20) scale(0.1)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeChevron"
         stroke="var(--palette-accent4)"
-        transform="translate(85 10) rotate(0) scale(0.1)"
+        transform="translate(86 6) rotate(200) scale(0.1)"
       />
       
       <!-- Row 2 -->
+      <!-- Duplicate shape to create a seamless illusion -->
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeZigzag"
         stroke="var(--palette-accent3)"
-        transform="translate(10 35) rotate(0) scale(0.1)"
+        transform="translate(4 37) rotate(40) scale(0.2)"
+      />
+      <use
+        href="#BackgroundShapeZigzag"
+        stroke="var(--palette-accent3)"
+        transform="translate(104 37) rotate(40) scale(0.2)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeSquare"
         stroke="var(--palette-accent4)"
-        transform="translate(35 35) rotate(0) scale(0.1)"
+        transform="translate(36 39) rotate(30) scale(0.1)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeSquiggle"
         stroke="var(--palette-accent5)"
-        transform="translate(60 35) rotate(0) scale(0.1)"
+        transform="translate(66 38) rotate(75) scale(0.2)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeCircle"
         stroke="var(--palette-accent1)"
-        transform="translate(85 35) rotate(0) scale(0.1)"
+        transform="translate(81 32) rotate(0) scale(0.1)"
       />
       
       <!-- Row 3 -->
       <use
         href="#BackgroundShapeCross"
         stroke="var(--palette-accent5)"
-        transform="translate(10 60) rotate(0) scale(0.1)"
+        transform="translate(13 58) rotate(60) scale(0.1)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeSquiggle"
         stroke="var(--palette-accent1)"
-        transform="translate(35 60) rotate(0) scale(0.1)"
+        transform="translate(33 63) rotate(160) scale(0.2)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeChevron"
         stroke="var(--palette-accent2)"
-        transform="translate(60 60) rotate(0) scale(0.1)"
+        transform="translate(60 57) rotate(20) scale(0.1)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeSquare"
         stroke="var(--palette-accent3)"
-        transform="translate(85 60) rotate(0) scale(0.1)"
+        transform="translate(88 62) rotate(70) scale(0.1)"
       />
       
       <!-- Row 4 -->
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeCircle"
         stroke="var(--palette-accent2)"
-        transform="translate(10 85) rotate(0) scale(0.1)"
+        transform="translate(11 90) rotate(0) scale(0.1)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeTriangle"
         stroke="var(--palette-accent3)"
-        transform="translate(35 85) rotate(0) scale(0.1)"
+        transform="translate(37 89) rotate(10) scale(0.1)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeZigzag"
         stroke="var(--palette-accent4)"
-        transform="translate(60 85) rotate(0) scale(0.1)"
+        transform="translate(58 79) rotate(190) scale(0.2)"
       />
       
       <use
-        href="#BackgroundShapeCross"
+        href="#BackgroundShapeTriangle"
         stroke="var(--palette-accent5)"
-        transform="translate(85 85) rotate(0) scale(0.1)"
+        transform="translate(85 85) rotate(40) scale(0.1)"
       />
-      
     </pattern>
 
+    <!--
+      Shape definitions
+      These are used by the above pattern definition
+    -->
     <!-- Debug Bounds -->
     <rect
       id="BackgroundDebugBounds"
@@ -195,5 +209,10 @@
       vector-effect="non-scaling-stroke"
     />
   </defs>
+
+  <!--
+    Rendered pattern
+    This is a rectanglar region filled with the defined pattern
+  -->
   <rect width="100%" height="100%" fill="url(#BackgroundPattern)"></rect>
 </svg>
