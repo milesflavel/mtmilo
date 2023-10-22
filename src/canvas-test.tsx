@@ -14,6 +14,7 @@ const CanvasTest = () => {
         routerConfig={{
           "/box/1": { cameraPosition: new Vector3(5, 5, 5) },
           "/box/2": { cameraPosition: new Vector3(-5, -5, 5) },
+          "/404": { cameraPosition: new Vector3(10, 0, 10) },
         }}
       ></Router>
       <ambientLight intensity={0.5} />
@@ -29,6 +30,9 @@ const CanvasTest = () => {
       </Link>
       <Link routePath="/box/2">
         <Box position={[1.2, 0, 0]} />
+      </Link>
+      <Link routePath="/box/3">
+        <Box position={[1.2, 2.4, 0]} />
       </Link>
       <OrbitControls />
     </Canvas>

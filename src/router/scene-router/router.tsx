@@ -15,7 +15,7 @@ const Router = (props: { routerConfig: RouterConfig }) => {
   const [position, setPosition] = useState<Vector3>(new Vector3(0, 0, 0));
 
   const tryNavigate = (routePath: string) => {
-    const route = props.routerConfig[location];
+    const route = props.routerConfig[routePath];
 
     if (route) {
       setPosition(route.cameraPosition);
