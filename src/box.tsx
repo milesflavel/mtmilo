@@ -1,10 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
-import useLocation from "wouter/use-location";
 
 const Box = (props: any) => {
-  const [_, navigate] = useLocation();
-
   // This reference will give us direct access to the mesh
   const meshRef = useRef<any>();
 
@@ -21,7 +18,6 @@ const Box = (props: any) => {
       {...props}
       ref={meshRef}
       scale={active ? 1.5 : 1}
-      onClick={(event) => navigate(props.route, { replace: true })}
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}
     >
