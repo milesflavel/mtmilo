@@ -1,21 +1,30 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Vector3 } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useLocation } from "wouter";
 
-export type RouterConfig = {
-  [path: string]: {
-    cameraPosition: Vector3;
-    cameraRotation?: Vector3;
-  };
-};
+export const RouterContext = createContext<{
+  basePath: string;
+}>({
+  basePath: "/",
+});
 
-const Router = (props: { routerConfig: RouterConfig }) => {
+const Router = (props: {
+  children?: React.ReactNode;
+  basePath: string;
+  routes: {
+    [path: string]: {
+      cameraPosition: Vector3;
+      cameraRotation?: Vector3;
+    };
+  };
+}) => {
   const [location] = useLocation();
   const [position, setPosition] = useState<Vector3>(new Vector3(0, 0, 0));
 
   const tryNavigate = (routePath: string) => {
-    const route = props.routerConfig[routePath];
+    const cleanPath = routePath.replace(props.basePath, "");
+    const route = props.routes[cleanPath];
 
     if (route) {
       setPosition(route.cameraPosition);
@@ -38,7 +47,11 @@ const Router = (props: { routerConfig: RouterConfig }) => {
     camera.position.lerp(position, delta);
   });
 
-  return <></>;
+  return (
+    <RouterContext.Provider value={{ basePath: props.basePath }}>
+      {props.children}
+    </RouterContext.Provider>
+  );
 };
 
 export default Router;

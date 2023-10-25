@@ -1,9 +1,10 @@
-import { useLocation } from "wouter";
+import { useLocation, Route, Switch } from "wouter";
 import AppBackground from "./app-background";
 import CanvasTest from "./canvas-test";
+import Blog from "./blog";
 
 const App = () => {
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
 
   return (
     <>
@@ -11,8 +12,24 @@ const App = () => {
       <div>
         <h1>{location}</h1>
       </div>
-      <div style={{ flexGrow: 1 }}>
-        <CanvasTest></CanvasTest>
+      <div style={{ flexGrow: 1, padding: "var(--sizing-padding)" }}>
+        <div
+          style={{
+            height: "100%",
+            backgroundColor: "var(--palette-background-overlay)",
+            borderRadius: "var(--sizing-radius)",
+            overflow: "hidden",
+          }}
+        >
+          <Switch>
+            <Route path="/blog/:blogId*">
+              <Blog />
+            </Route>
+            <Route path="/interactive/:_*">
+              <CanvasTest />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </>
   );
