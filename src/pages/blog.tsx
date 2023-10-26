@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "wouter";
 import Markdown from "react-markdown";
+import LoadingSpinner from "../components/loading-spinner";
 
 const Blog = () => {
   const params = useParams<{ blogId?: string }>();
@@ -34,7 +35,7 @@ const Blog = () => {
   return (
     <div style={{ height: "100%", padding: "var(--sizing-padding)" }}>
       {loading ? (
-        <div>Loading...</div>
+        <LoadingSpinner />
       ) : content ? (
         <Markdown>{content}</Markdown>
       ) : (
