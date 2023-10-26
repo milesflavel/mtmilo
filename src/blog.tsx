@@ -1,20 +1,45 @@
-import Markdown from "react-markdown";
+import { useEffect, useState } from "react";
 import { useParams } from "wouter";
-
-const BLOG_ENTRIES: { [blogId: string]: string } = {
-  "0-is-this-thing-on": "# Test\nTesting...\nTesting...\n1 2 3",
-};
+import Markdown from "react-markdown";
 
 const Blog = () => {
   const params = useParams<{ blogId?: string }>();
+  const [content, setContent] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (params.blogId) {
+      setLoading(true);
+      fetch(`/blog/${params.blogId}.md`)
+        .then((response) => {
+          if (response.ok) {
+            return response.text();
+          }
+        })
+        .then((value) => {
+          if (value) {
+            setContent(value);
+          } else {
+            setContent(null);
+          }
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      setContent(null);
+    }
+  }, [params.blogId]);
 
   return (
     <div style={{ height: "100%", padding: "var(--sizing-padding)" }}>
-      <Markdown>
-        {params.blogId && BLOG_ENTRIES[params.blogId]
-          ? BLOG_ENTRIES[params.blogId]
-          : "# Not Found"}
-      </Markdown>
+      {loading ? (
+        <div>Loading...</div>
+      ) : content ? (
+        <Markdown>{content}</Markdown>
+      ) : (
+        <div>Not Found</div>
+      )}
     </div>
   );
 };
