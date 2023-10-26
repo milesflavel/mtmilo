@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Dev React Three Fiber App",
   "scripts": {
-    "dev": "vite --port 3000"
+    "dev": "vite --port 3000",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "author": "Miles Flavel",
   "license": "ISC",

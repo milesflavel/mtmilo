@@ -1,7 +1,7 @@
 import { useLocation, Route, Switch } from "wouter";
 import AppBackground from "./app-background";
 import CanvasTest from "./canvas-test";
-import Blog from "./blog";
+import Blog from "./pages/blog";
 
 const App = () => {
   const [location] = useLocation();
