@@ -1,20 +1,14 @@
 import { Canvas, useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { Vector3 } from "three";
-import { Html, OrbitControls } from "@react-three/drei";
-import Box from "./box";
-import { Router, Link } from "./router/scene-router";
+import { OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
+import { Router, Link } from "./router/scene-router";
+import Box from "./box";
 import LoadingSpinner from "./components/loading-spinner";
 
 const RoomMesh = () => {
   const roomMesh = useLoader(OBJLoader, "/assets/models/room.obj");
-
-  return <primitive object={roomMesh}></primitive>;
-};
-const TEST = () => {
-  const roomMesh = useLoader(GLTFLoader, "/test.gltf");
 
   return <primitive object={roomMesh}></primitive>;
 };
@@ -43,7 +37,7 @@ const CanvasTest = () => {
             intensity={1000}
           />
           <pointLight position={[-10, -10, -10]} intensity={1000} />
-          <TEST />
+          <RoomMesh />
           <Link routePath="/box/1">
             <Box position={[-1.2, 0, 0]} />
           </Link>
