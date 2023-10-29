@@ -1,4 +1,4 @@
-import AppBackgroundSvg from "./app-background.svg?raw";
+import AppBackgroundSvg from "../images/app-background.svg?react";
 
 const AppBackground = () => (
   <div
@@ -10,8 +10,9 @@ const AppBackground = () => (
       height: "100%",
       zIndex: -1,
     }}
-    dangerouslySetInnerHTML={{ __html: AppBackgroundSvg }}
-  ></div>
+  >
+    <AppBackgroundSvg />
+  </div>
 );
 
 export default AppBackground;

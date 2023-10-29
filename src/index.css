@@ -10,6 +10,8 @@
 
   --sizing-padding: 16px;
   --sizing-radius: 16px;
+  
+  font-family: sans-serif;
 }
 
 body {
@@ -18,7 +20,6 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  font-family: sans-serif;
 }
 
 #root {

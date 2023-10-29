@@ -1,5 +1,5 @@
 import { useLocation, Route, Switch } from "wouter";
-import AppBackground from "./app-background";
+import AppBackground from "./components/app-background";
 import CanvasTest from "./canvas-test";
 import Blog from "./pages/blog";
 
@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <>
-      <AppBackground></AppBackground>
+      <AppBackground />
       <div>
         <h1>{location}</h1>
       </div>
