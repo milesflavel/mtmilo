@@ -5,6 +5,7 @@ import Blog from "./pages/blog";
 import LogoMtmiloSvg from "./images/logo-mtmilo.svg?react";
 import HeaderLink from "./components/header-link";
 import SocialIcon from "./components/social-icon";
+import Home from "./pages/home";
 
 const App = () => {
   return (
@@ -67,6 +68,9 @@ const App = () => {
           }}
         >
           <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
             <Route path="/blog/:blogId*">
               <Blog />
             </Route>
