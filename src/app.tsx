@@ -1,8 +1,10 @@
-import { useLocation, Route, Switch } from "wouter";
+import { Route, Switch } from "wouter";
 import AppBackground from "./components/app-background";
 import CanvasTest from "./canvas-test";
 import Blog from "./pages/blog";
-import SocialButton from "./components/social-button";
+import LogoMtmiloSvg from "./images/logo-mtmilo.svg?react";
+import HeaderLink from "./components/header-link";
+import SocialIcon from "./components/social-icon";
 
 const App = () => {
   return (
@@ -17,32 +19,41 @@ const App = () => {
             overflow: "hidden",
             display: "flex",
             justifyContent: "space-between",
-            paddingLeft: "var(--sizing-radius)",
+            paddingLeft: "var(--sizing-padding)",
+            paddingRight: "var(--sizing-padding)",
           }}
         >
           <div
             style={{
               display: "flex",
               alignItems: "center",
+              gap: "var(--sizing-padding)",
             }}
           >
-            <div
-              style={{
-                fontSize: "calc(var(--sizing-padding) * 2)",
-              }}
-            >
-              LOGO
-            </div>
+            <HeaderLink to="/">
+              <LogoMtmiloSvg
+                style={{
+                  height: "calc(var(--sizing-radius) * 1.3)",
+                  width: "auto",
+                }}
+              />
+            </HeaderLink>
+            <HeaderLink to="/blog">Blog</HeaderLink>
+            <HeaderLink to="/interactive">Interactive</HeaderLink>
           </div>
-          <div>
-            <SocialButton
-              url="https://twitter.com/milesflavel"
-              logo="twitter"
-            />
-            <SocialButton
-              url="https://github.com/milesflavel/dev-canvas-app"
-              logo="github"
-            />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--sizing-padding)",
+            }}
+          >
+            <HeaderLink href="https://twitter.com/milesflavel">
+              <SocialIcon logo="twitter" />
+            </HeaderLink>
+            <HeaderLink href="https://github.com/milesflavel/dev-canvas-app">
+              <SocialIcon logo="github" />
+            </HeaderLink>
           </div>
         </div>
       </div>

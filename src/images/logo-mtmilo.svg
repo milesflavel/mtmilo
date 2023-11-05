@@ -1,0 +1,16 @@
+<svg
+  width="92"
+  height="30"
+  viewbox="0, 0, 94, 32"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M 2 30 C 2 30 42 2 54 2 C 64 2 72 12 72 12 M 27 18 L 27 30 M 27 22 C 27 20 29 18 31 18 C 33 18 35 20 35 22 L 35 30 M 35 22 C 35 20 37 18 39 18 C 41 18 43 20 43 22 L 43 30 M 48 14 L 48 30 M 46 18 L 50 18 M 55 18 L 55 30 M 55 22 C 55 20 57 18 59 18 C 61 18 63 20 63 22 L 63 30 M 63 22 C 63 20 65 18 67 18 C 69 18 71 20 71 22 L 71 30 M 74 18 L 74 30 M 77 14 L 77 30 M 86 18 C 89.6 18 92 20.4 92 24 C 92 27.6 89.6 30 86 30 C 82.4 30 80 27.6 80 24 C 80 20.4 82.4 18 86 18"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+  />
+  <circle cx="74" cy="15" r="1" fill="currentColor" />
+</svg>
