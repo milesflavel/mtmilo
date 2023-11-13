@@ -58,27 +58,24 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div style={{ flexGrow: 1, padding: "var(--sizing-padding)" }}>
-        <div
-          style={{
-            height: "100%",
-            backgroundColor: "var(--palette-background-overlay)",
-            borderRadius: "var(--sizing-radius)",
-            overflow: "hidden",
-          }}
-        >
-          <Switch>
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/blog/:blogId*">
-              <Blog />
-            </Route>
-            <Route path="/interactive/:_*">
-              <CanvasTest />
-            </Route>
-          </Switch>
-        </div>
+      <div
+        style={{
+          flexGrow: 1,
+          padding: "var(--sizing-padding)",
+          overflow: "hidden",
+        }}
+      >
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="/blog/:blogId*">
+            <Blog />
+          </Route>
+          <Route path="/interactive/:_*">
+            <CanvasTest />
+          </Route>
+        </Switch>
       </div>
     </>
   );

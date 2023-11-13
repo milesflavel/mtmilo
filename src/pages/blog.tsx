@@ -29,11 +29,19 @@ const Blog = () => {
         });
     } else {
       setContent(null);
+      setLoading(false);
     }
   }, [params.blogId]);
 
   return (
-    <div style={{ height: "100%", padding: "var(--sizing-padding)" }}>
+    <div
+      style={{
+        height: "100%",
+        padding: "var(--sizing-padding)",
+        backgroundColor: "var(--palette-background-overlay)",
+        borderRadius: "var(--sizing-radius)",
+      }}
+    >
       {loading ? (
         <LoadingSpinner />
       ) : content ? (
