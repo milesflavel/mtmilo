@@ -13,6 +13,19 @@ const RoomMesh = () => {
   return <primitive object={roomMesh}></primitive>;
 };
 
+const ArcadeCabinetMesh = () => {
+  const arcadeCabinetMesh = useLoader(
+    OBJLoader,
+    "/assets/models/arcadecabinet1.obj"
+  );
+
+  return (
+    <mesh rotation={[0, Math.PI, 0]} position={[0, 0, 0]}>
+      <primitive object={arcadeCabinetMesh}></primitive>
+    </mesh>
+  );
+};
+
 const CanvasTest = () => {
   return (
     <Suspense fallback={<LoadingSpinner />}>
@@ -38,6 +51,7 @@ const CanvasTest = () => {
           />
           <pointLight position={[-10, -10, -10]} intensity={1000} />
           <RoomMesh />
+          <ArcadeCabinetMesh />
           <Link routePath="/box/1">
             <Box position={[-1.2, 0, 0]} />
           </Link>
