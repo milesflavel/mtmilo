@@ -1,16 +1,7 @@
 import AppBackgroundSvg from "../images/app-background.svg?react";
 
 const AppBackground = () => (
-  <div
-    style={{
-      position: "absolute",
-      left: 0,
-      top: 0,
-      width: "100%",
-      height: "100%",
-      zIndex: -1,
-    }}
-  >
+  <div className="absolute left-0 top-0 w-full h-full -z-10">
     <AppBackgroundSvg />
   </div>
 );

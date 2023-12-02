@@ -11,44 +11,16 @@ const App = () => {
   return (
     <>
       <AppBackground />
-      <div style={{ padding: "var(--sizing-padding)" }}>
-        <div
-          style={{
-            height: "calc(var(--sizing-radius) * 2)",
-            backgroundColor: "var(--palette-background-overlay)",
-            borderRadius: "var(--sizing-radius)",
-            overflow: "hidden",
-            display: "flex",
-            justifyContent: "space-between",
-            paddingLeft: "var(--sizing-padding)",
-            paddingRight: "var(--sizing-padding)",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "var(--sizing-padding)",
-            }}
-          >
+      <div className="p-4">
+        <div className="bg-purple-900/80 backdrop-blur h-16 rounded-3xl overflow-hidden flex justify-between px-4">
+          <div className="flex items-center gap-4">
             <HeaderLink to="/">
-              <LogoMtmiloSvg
-                style={{
-                  height: "calc(var(--sizing-radius) * 1.3)",
-                  width: "auto",
-                }}
-              />
+              <LogoMtmiloSvg className="h-10 w-auto" />
             </HeaderLink>
             <HeaderLink to="/blog">Blog</HeaderLink>
             <HeaderLink to="/interactive">Interactive</HeaderLink>
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "var(--sizing-padding)",
-            }}
-          >
+          <div className="flex items-center gap-4">
             <HeaderLink href="https://twitter.com/milesflavel">
               <SocialIcon logo="twitter" />
             </HeaderLink>
@@ -58,13 +30,7 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          flexGrow: 1,
-          padding: "var(--sizing-padding)",
-          overflow: "hidden",
-        }}
-      >
+      <div className="flex-grow p-4 overflow-hidden">
         <Switch>
           <Route path="/">
             <Home />

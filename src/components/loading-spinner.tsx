@@ -2,15 +2,7 @@ import LoadingSpinnerSvg from "../images/loading-spinner.svg?react";
 
 const LoadingSpinner = () => {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="w-full h-full flex justify-center items-center">
       <LoadingSpinnerSvg />
     </div>
   );

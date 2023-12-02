@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Link } from "wouter";
 
 const COLOURS = [
-  "var(--palette-accent1)",
-  "var(--palette-accent2)",
-  "var(--palette-accent3)",
-  "var(--palette-accent4)",
-  "var(--palette-accent5)",
+  "text-accent-pink",
+  "text-accent-green",
+  "text-accent-yellow",
+  "text-accent-cyan",
+  "text-accent-purple",
 ];
 
 const HeaderLink = (props: {
@@ -14,16 +14,16 @@ const HeaderLink = (props: {
   href?: string;
   children: React.ReactNode;
 }) => {
-  const [colour, setColour] = useState("var(--palatte-text)");
+  const [colourClass, setColourClass] = useState("text-white");
 
   const handleFocus = () => {
     const newColourIndex = Math.floor(Math.random() * COLOURS.length);
 
-    setColour(COLOURS[newColourIndex]);
+    setColourClass(COLOURS[newColourIndex]);
   };
 
   const handleUnfocus = () => {
-    setColour("var(--palatte-text)");
+    setColourClass("text-white");
   };
 
   return (
@@ -31,7 +31,7 @@ const HeaderLink = (props: {
       {props.to ? (
         <Link to={props.to}>
           <a
-            style={{ display: "inline-block", color: colour }}
+            className={`inline-block ${colourClass}`}
             onMouseEnter={handleFocus}
             onMouseLeave={handleUnfocus}
             onFocus={handleFocus}
@@ -43,7 +43,7 @@ const HeaderLink = (props: {
       ) : (
         <a
           href={props.href}
-          style={{ display: "inline-block", color: colour }}
+          className={`inline-block ${colourClass}`}
           onMouseEnter={handleFocus}
           onMouseLeave={handleUnfocus}
           onFocus={handleFocus}

@@ -34,14 +34,7 @@ const Blog = () => {
   }, [params.blogId]);
 
   return (
-    <div
-      style={{
-        height: "100%",
-        padding: "var(--sizing-padding)",
-        backgroundColor: "var(--palette-background-overlay)",
-        borderRadius: "var(--sizing-radius)",
-      }}
-    >
+    <div className="bg-purple-900/80 backdrop-blur h-full p-4 rounded-3xl">
       {loading ? (
         <LoadingSpinner />
       ) : content ? (

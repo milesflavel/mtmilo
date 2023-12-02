@@ -1,30 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --palette-background: #1f1634;
   --palette-background-overlay: #24193edb;
   --palatte-text: #ffffff;
-  --palette-accent1: #ff55b3;
+  /* --palette-accent1: #ff55b3;
   --palette-accent2: #1df47f;
   --palette-accent3: #f8dc00;
   --palette-accent4: #19e9fe;
-  --palette-accent5: #a577fe;
+  --palette-accent5: #a577fe; */
 
   --sizing-padding: 16px;
   --sizing-radius: 32px;
   
   font-family: sans-serif;
-}
-
-body {
-  background-color: var(--palette-background);
-  color: var(--palatte-text);
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-#root {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }

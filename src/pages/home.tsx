@@ -2,24 +2,9 @@ import ProfilePhoto from "../images/profile-photo.jpg";
 
 const Home = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100%",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        gap: "var(--sizing-padding)",
-      }}
-    >
-      <div
-        style={{
-          flexGrow: 1,
-          padding: "var(--sizing-padding)",
-          backgroundColor: "var(--palette-background-overlay)",
-          borderRadius: "var(--sizing-radius)",
-        }}
-      >
-        <h1 style={{ textAlign: "center" }}>Welcome!</h1>
+    <div className="flex h-full flex-row justify-between gap-4">
+      <div className="bg-purple-900/80 backdrop-blur flex-grow p-4 rounded-3xl">
+        <h1 className="text-center">Welcome!</h1>
 
         <h2>What is this?</h2>
         <p>
@@ -35,23 +20,12 @@ const Home = () => {
           interactive experience.
         </p>
       </div>
-      <div
-        style={{
-          padding: "var(--sizing-padding)",
-          backgroundColor: "var(--palette-background-overlay)",
-          borderRadius: "var(--sizing-radius)",
-          height: "fit-content",
-        }}
-      >
+      <div className="bg-purple-900/80 backdrop-blur h-fit p-4 rounded-3xl">
         <img
           src={ProfilePhoto}
-          style={{
-            width: "300px",
-            borderRadius: "var(--sizing-padding)",
-            border: "3px solid var(--palette-accent5)",
-          }}
+          className="w-80 rounded-2xl border-solid border-4 border-accent-purple"
         />
-        <h2 style={{ textAlign: "center" }}>Miles Flavel</h2>
+        <h2 className="text-center">Miles Flavel</h2>
         <ul>
           <li>Fullstack Dev</li>
           <li>Transit Nerd</li>
