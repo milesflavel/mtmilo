@@ -17,7 +17,7 @@ const RoomMesh = () => {
 const ArcadeCabinetMesh = () => {
   const arcadeCabinetMesh = useLoader(
     OBJLoader,
-    "/assets/models/arcadecabinet1.obj"
+    "/assets/models/arcadecabinet1.obj",
   );
 
   return (
@@ -31,7 +31,7 @@ const CanvasTest = () => {
   return (
     <Pane className="h-full overflow-hidden">
       <Suspense fallback={<LoadingSpinner />}>
-        <Canvas className="w-full h-full" camera={{ position: [0, 0, 0] }}>
+        <Canvas className="h-full w-full" camera={{ position: [0, 0, 0] }}>
           <OrbitControls />
           <Router
             basePath="/interactive"

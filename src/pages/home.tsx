@@ -24,7 +24,7 @@ const Home = () => {
       <Pane className="h-fit p-4">
         <img
           src={ProfilePhoto}
-          className="w-80 rounded-2xl border-solid border-4 border-accent-purple"
+          className="w-80 rounded-2xl border-4 border-solid border-accent-purple"
         />
         <h2 className="text-center">Miles Flavel</h2>
         <ul>

@@ -13,7 +13,7 @@ const App = () => {
     <>
       <AppBackground />
       <div className="p-4">
-        <Pane className="h-16 overflow-hidden flex justify-between px-4">
+        <Pane className="flex h-16 justify-between overflow-hidden px-4">
           <div className="flex items-center gap-4">
             <HeaderLink to="/">
               <LogoMtmiloSvg className="h-10 w-auto" />
@@ -31,7 +31,7 @@ const App = () => {
           </div>
         </Pane>
       </div>
-      <div className="flex-grow p-4 overflow-hidden">
+      <div className="flex-grow overflow-hidden p-4">
         <Switch>
           <Route path="/">
             <Home />
