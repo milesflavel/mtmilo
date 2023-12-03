@@ -1,9 +1,10 @@
+import Pane from "../components/pane";
 import ProfilePhoto from "../images/profile-photo.jpg";
 
 const Home = () => {
   return (
     <div className="flex h-full flex-row justify-between gap-4">
-      <div className="bg-purple-900/80 backdrop-blur flex-grow p-4 rounded-3xl">
+      <Pane className="flex-grow p-4">
         <h1 className="text-center">Welcome!</h1>
 
         <h2>What is this?</h2>
@@ -19,8 +20,8 @@ const Home = () => {
           websites, so the long-term goal is for this whole site to exist as an
           interactive experience.
         </p>
-      </div>
-      <div className="bg-purple-900/80 backdrop-blur h-fit p-4 rounded-3xl">
+      </Pane>
+      <Pane className="h-fit p-4">
         <img
           src={ProfilePhoto}
           className="w-80 rounded-2xl border-solid border-4 border-accent-purple"
@@ -31,7 +32,7 @@ const Home = () => {
           <li>Transit Nerd</li>
           <li>Repair Advocate</li>
         </ul>
-      </div>
+      </Pane>
     </div>
   );
 };

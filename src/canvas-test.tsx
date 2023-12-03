@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { Router, Link } from "./router/scene-router";
 import Box from "./box";
 import LoadingSpinner from "./components/loading-spinner";
+import Pane from "./components/pane";
 
 const RoomMesh = () => {
   const roomMesh = useLoader(OBJLoader, "/assets/models/room.obj");
@@ -28,7 +29,7 @@ const ArcadeCabinetMesh = () => {
 
 const CanvasTest = () => {
   return (
-    <div className="bg-purple-900/80 backdrop-blur h-full rounded-3xl overflow-hidden">
+    <Pane className="h-full overflow-hidden">
       <Suspense fallback={<LoadingSpinner />}>
         <Canvas className="w-full h-full" camera={{ position: [0, 0, 0] }}>
           <OrbitControls />
@@ -62,7 +63,7 @@ const CanvasTest = () => {
           </Router>
         </Canvas>
       </Suspense>
-    </div>
+    </Pane>
   );
 };
 

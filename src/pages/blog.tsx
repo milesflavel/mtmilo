@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "wouter";
 import Markdown from "react-markdown";
 import LoadingSpinner from "../components/loading-spinner";
+import Pane from "../components/pane";
 
 const Blog = () => {
   const params = useParams<{ blogId?: string }>();
@@ -34,7 +35,7 @@ const Blog = () => {
   }, [params.blogId]);
 
   return (
-    <div className="bg-purple-900/80 backdrop-blur h-full p-4 rounded-3xl">
+    <Pane className="h-full p-4">
       {loading ? (
         <LoadingSpinner />
       ) : content ? (
@@ -42,7 +43,7 @@ const Blog = () => {
       ) : (
         <div>Not Found</div>
       )}
-    </div>
+    </Pane>
   );
 };
 

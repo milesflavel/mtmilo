@@ -6,13 +6,14 @@ import LogoMtmiloSvg from "./images/logo-mtmilo.svg?react";
 import HeaderLink from "./components/header-link";
 import SocialIcon from "./components/social-icon";
 import Home from "./pages/home";
+import Pane from "./components/pane";
 
 const App = () => {
   return (
     <>
       <AppBackground />
       <div className="p-4">
-        <div className="bg-purple-900/80 backdrop-blur h-16 rounded-3xl overflow-hidden flex justify-between px-4">
+        <Pane className="h-16 overflow-hidden flex justify-between px-4">
           <div className="flex items-center gap-4">
             <HeaderLink to="/">
               <LogoMtmiloSvg className="h-10 w-auto" />
@@ -28,7 +29,7 @@ const App = () => {
               <SocialIcon logo="github" />
             </HeaderLink>
           </div>
-        </div>
+        </Pane>
       </div>
       <div className="flex-grow p-4 overflow-hidden">
         <Switch>
