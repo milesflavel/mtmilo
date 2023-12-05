@@ -12,8 +12,8 @@ const App = () => {
   return (
     <>
       <AppBackground />
-      <div className="p-4">
-        <Pane className="flex h-16 justify-between overflow-hidden px-4">
+      <nav className="p-4">
+        <Pane className="flex h-16 justify-between px-4">
           <div className="flex items-center gap-4">
             <HeaderLink to="/">
               <LogoMtmiloSvg className="h-10 w-auto" />
@@ -30,8 +30,8 @@ const App = () => {
             </HeaderLink>
           </div>
         </Pane>
-      </div>
-      <div className="flex-grow overflow-hidden p-4">
+      </nav>
+      <main className="flex-grow overflow-hidden p-4">
         <Switch>
           <Route path="/">
             <Home />
@@ -43,7 +43,7 @@ const App = () => {
             <CanvasTest />
           </Route>
         </Switch>
-      </div>
+      </main>
     </>
   );
 };

@@ -11,10 +11,7 @@ type LogoType = keyof typeof LOGOS;
 const SocialIcon = (props: { logo: LogoType }) => {
   const Logo = () =>
     createElement(LOGOS[props.logo], {
-      style: {
-        width: "calc(var(--sizing-padding) * 2)",
-        height: "calc(var(--sizing-padding) * 2)",
-      },
+      className: "w-8 h-8",
     });
 
   return <Logo />;
