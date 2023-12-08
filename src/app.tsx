@@ -25,7 +25,7 @@ const App = () => {
             <HeaderLink href="https://twitter.com/milesflavel">
               <SocialIcon logo="twitter" />
             </HeaderLink>
-            <HeaderLink href="https://github.com/milesflavel/dev-canvas-app">
+            <HeaderLink href="https://github.com/milesflavel/mtmilo">
               <SocialIcon logo="github" />
             </HeaderLink>
           </div>
