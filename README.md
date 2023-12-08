@@ -9,3 +9,4 @@ Technologies used:
 - Vite https://vitejs.dev/
 - Wouter https://github.com/molefrog/wouter
 - React Markdown https://github.com/remarkjs/react-markdown
+- Tailwind CSS https://tailwindcss.com/
