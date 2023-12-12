@@ -28,10 +28,39 @@ module.exports = {
       borderRadius: {
         "3xl": "2rem",
       },
+      // Add small/large/dynamic viewport units
+      // https://medium.com/@dpoulton1/adding-large-small-and-dynamic-viewport-units-to-tailwind-css-8fb9105da11d
+      minHeight: {
+        "screen-svh": ["100vh", "100svh"],
+        "screen-lvh": ["100vh", "100lvh"],
+        "screen-dvh": ["100vh", "100dvh"],
+      },
+      height: {
+        "screen-svh": ["100vh", "100svh"],
+        "screen-lvh": ["100vh", "100lvh"],
+        "screen-dvh": ["100vh", "100dvh"],
+      },
+      maxHeight: {
+        "screen-svh": ["100vh", "100svh"],
+        "screen-lvh": ["100vh", "100lvh"],
+        "screen-dvh": ["100vh", "100dvh"],
+      },
+      minWidth: {
+        "screen-svw": ["100vw", "100svw"],
+        "screen-lvw": ["100vw", "100lvw"],
+        "screen-dvw": ["100vw", "100dvw"],
+      },
+      width: {
+        "screen-svw": ["100vw", "100svw"],
+        "screen-lvw": ["100vw", "100lvw"],
+        "screen-dvw": ["100vw", "100dvw"],
+      },
+      maxWidth: {
+        "screen-svw": ["100vw", "100svw"],
+        "screen-lvw": ["100vw", "100lvw"],
+        "screen-dvw": ["100vw", "100dvw"],
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
-  // corePlugins: {
-  //   preflight: false,
-  // },
 };
