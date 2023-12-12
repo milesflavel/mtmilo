@@ -4,8 +4,7 @@
     "rewrite": "/index.html",
     "exclude": [
       "*.{jpg,gif,png}",
-      "assets/*",
-      "blog/*"
+      "assets/*"
     ]
   }
 }
