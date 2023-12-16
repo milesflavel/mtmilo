@@ -1,7 +1,10 @@
 import Pane from "../components/pane";
+import usePageTitle from "../hooks/page-title";
 import ProfilePhoto from "../images/profile-photo.jpg";
 
 const Home = () => {
+  usePageTitle("Home - mtmilo");
+
   return (
     <div className="flex h-full flex-row flex-wrap justify-between gap-4 overflow-auto md:flex-nowrap">
       <Pane className="flex flex-grow justify-center p-4">

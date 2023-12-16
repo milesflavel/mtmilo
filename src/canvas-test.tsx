@@ -7,6 +7,7 @@ import { Router, Link } from "./router/scene-router";
 import Box from "./box";
 import LoadingSpinner from "./components/loading-spinner";
 import Pane from "./components/pane";
+import usePageTitle from "./hooks/page-title";
 
 const RoomMesh = () => {
   const roomMesh = useLoader(OBJLoader, "/assets/models/room.obj");
@@ -28,6 +29,8 @@ const ArcadeCabinetMesh = () => {
 };
 
 const CanvasTest = () => {
+  usePageTitle("Interactive - mtmilo");
+
   return (
     <Pane className="h-full overflow-hidden">
       <Suspense fallback={<LoadingSpinner />}>

@@ -3,8 +3,12 @@ import { useParams } from "wouter";
 import Markdown from "react-markdown";
 import LoadingSpinner from "../components/loading-spinner";
 import Pane from "../components/pane";
+import usePageTitle from "../hooks/page-title";
 
 const Blog = () => {
+  const [pageTitle, setPageTitle] = useState("Blog - mtmilo");
+  usePageTitle(pageTitle);
+
   const params = useParams<{ blogId?: string }>();
   const [content, setContent] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,8 +24,10 @@ const Blog = () => {
         })
         .then((value) => {
           if (value) {
+            setPageTitle(`${params.blogId} - mtmilo`);
             setContent(value);
           } else {
+            setPageTitle("Blog - mtmilo");
             setContent(null);
           }
         })
@@ -29,6 +35,7 @@ const Blog = () => {
           setLoading(false);
         });
     } else {
+      setPageTitle("Blog - mtmilo");
       setContent(null);
       setLoading(false);
     }
