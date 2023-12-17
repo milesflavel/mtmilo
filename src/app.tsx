@@ -31,7 +31,7 @@ const App = () => {
           </div>
         </Pane>
       </nav>
-      <main className="flex-grow overflow-hidden p-4">
+      <div className="flex-grow overflow-hidden p-4">
         <Switch>
           <Route path="/">
             <Home />
@@ -43,7 +43,7 @@ const App = () => {
             <CanvasTest />
           </Route>
         </Switch>
-      </main>
+      </div>
     </>
   );
 };

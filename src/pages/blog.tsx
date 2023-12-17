@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "wouter";
 import Markdown from "react-markdown";
 import LoadingSpinner from "../components/loading-spinner";
-import Pane from "../components/pane";
 import usePageTitle from "../hooks/page-title";
+import LayoutWithAside from "../components/layout-with-aside";
 
 const Blog = () => {
   const setPageTitle = usePageTitle("Blog - mtmilo");
@@ -41,15 +41,20 @@ const Blog = () => {
   }, [params.blogId]);
 
   return (
-    <Pane className="h-full p-4">
-      {loading ? (
-        <LoadingSpinner />
-      ) : content ? (
-        <Markdown>{content}</Markdown>
-      ) : (
-        <div>Not Found</div>
-      )}
-    </Pane>
+    <LayoutWithAside
+      main={
+        <section className="prose prose-neutral prose-invert">
+          {loading ? (
+            <LoadingSpinner />
+          ) : content ? (
+            <Markdown>{content}</Markdown>
+          ) : (
+            <div>Not Found</div>
+          )}
+        </section>
+      }
+      aside={<></>}
+    />
   );
 };
 

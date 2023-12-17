@@ -1,4 +1,4 @@
-import Pane from "../components/pane";
+import LayoutWithAside from "../components/layout-with-aside";
 import usePageTitle from "../hooks/page-title";
 import ProfilePhoto from "../images/profile-photo.jpg";
 
@@ -6,8 +6,8 @@ const Home = () => {
   usePageTitle("Home - mtmilo");
 
   return (
-    <div className="flex h-full flex-row flex-wrap justify-between gap-4 overflow-auto md:flex-nowrap">
-      <Pane className="flex flex-grow justify-center p-4">
+    <LayoutWithAside
+      main={
         <section className="prose prose-neutral prose-invert">
           <h1 className="text-center">Welcome!</h1>
 
@@ -25,9 +25,9 @@ const Home = () => {
             site to exist as an interactive experience.
           </p>
         </section>
-      </Pane>
-      <Pane className="flex h-fit w-full justify-center p-4 md:w-80">
-        <aside>
+      }
+      aside={
+        <>
           <figure>
             <img
               src={ProfilePhoto}
@@ -42,9 +42,9 @@ const Home = () => {
             <li>Transit Nerd</li>
             <li>Repair Advocate</li>
           </ul>
-        </aside>
-      </Pane>
-    </div>
+        </>
+      }
+    />
   );
 };
 
