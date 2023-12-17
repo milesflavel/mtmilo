@@ -1,9 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const usePageTitle = (title: string) => {
+const usePageTitle = (initialTitle: string) => {
+  const [pageTitle, setPageTitle] = useState(initialTitle);
+
   useEffect(() => {
-    document.title = title;
-  }, [title]);
+    document.title = pageTitle;
+  }, [pageTitle]);
+
+  return setPageTitle;
 };
 
 export default usePageTitle;

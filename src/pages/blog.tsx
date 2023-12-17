@@ -6,8 +6,7 @@ import Pane from "../components/pane";
 import usePageTitle from "../hooks/page-title";
 
 const Blog = () => {
-  const [pageTitle, setPageTitle] = useState("Blog - mtmilo");
-  usePageTitle(pageTitle);
+  const setPageTitle = usePageTitle("Blog - mtmilo");
 
   const params = useParams<{ blogId?: string }>();
   const [content, setContent] = useState<string | null>(null);
