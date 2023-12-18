@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import FullscreenDisableSvg from "../images/fullscreen-disable.svg?react";
+import FullscreenEnableSvg from "../images/fullscreen-enable.svg?react";
 
 const FullscreenButton = (props: {
   elementRef: React.RefObject<HTMLElement>;
@@ -25,11 +27,15 @@ const FullscreenButton = (props: {
 
   return (
     <div
-      className={`absolute left-0 top-0 h-10 w-10 ${
-        isFullscreen ? "bg-red-500" : "bg-blue-500"
-      }`}
+      className="absolute right-0 top-0 mr-4 mt-4 rounded-2xl bg-purple-500/10 p-3 hover:bg-purple-500/20"
       onClick={toggleFullscreen}
-    ></div>
+    >
+      {isFullscreen ? (
+        <FullscreenDisableSvg className="h-8 w-8" />
+      ) : (
+        <FullscreenEnableSvg className="h-8 w-8" />
+      )}
+    </div>
   );
 };
 
