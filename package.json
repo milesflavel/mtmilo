@@ -1,7 +1,7 @@
 {
-  "name": "dev-canvas-app",
-  "version": "0.0.1",
-  "description": "Dev React Three Fiber App",
+  "name": "mtmilo-app",
+  "version": "0.0.2",
+  "description": "mtmilo.net web app",
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
