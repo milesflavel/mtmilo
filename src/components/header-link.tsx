@@ -31,7 +31,7 @@ const HeaderLink = (props: {
       {props.to ? (
         <Link to={props.to}>
           <a
-            className={`inline-block ${colourClass}`}
+            className={`inline-flex items-center justify-center gap-4 ${colourClass}`}
             onMouseEnter={handleFocus}
             onMouseLeave={handleUnfocus}
             onFocus={handleFocus}
@@ -43,7 +43,7 @@ const HeaderLink = (props: {
       ) : (
         <a
           href={props.href}
-          className={`inline-block ${colourClass}`}
+          className={`inline-flex items-center justify-center gap-4 ${colourClass}`}
           onMouseEnter={handleFocus}
           onMouseLeave={handleUnfocus}
           onFocus={handleFocus}

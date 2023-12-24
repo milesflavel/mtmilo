@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import FullscreenDisableSvg from "../../images/fullscreen-disable.svg?react";
-import FullscreenEnableSvg from "../../images/fullscreen-enable.svg?react";
+import Icon from "../icon";
 
 const FullscreenButton = (props: {
   elementRef: React.RefObject<HTMLElement>;
@@ -33,9 +32,9 @@ const FullscreenButton = (props: {
       type="button"
     >
       {isFullscreen ? (
-        <FullscreenDisableSvg className="h-8 w-8" />
+        <Icon icon="fullscreenDisable" />
       ) : (
-        <FullscreenEnableSvg className="h-8 w-8" />
+        <Icon icon="fullscreenEnable" />
       )}
     </button>
   );
