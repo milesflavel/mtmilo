@@ -1,6 +1,6 @@
 import { Route, Switch } from "wouter";
 import AppBackground from "./components/app-background";
-import CanvasTest from "./canvas-test";
+import Interactive from "./pages/interactive";
 import Blog from "./pages/blog";
 import LogoMtmiloSvg from "./images/logo-mtmilo.svg?react";
 import HeaderLink from "./components/header-link";
@@ -40,7 +40,7 @@ const App = () => {
             <Blog />
           </Route>
           <Route path="/interactive/:_*">
-            <CanvasTest />
+            <Interactive />
           </Route>
         </Switch>
       </div>

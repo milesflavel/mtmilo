@@ -3,12 +3,12 @@ import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import { Vector3 } from "three";
 import { OrbitControls } from "@react-three/drei";
 import { Suspense, useRef } from "react";
-import { Router, Link } from "./router/scene-router";
-import Box from "./box";
-import LoadingSpinner from "./components/loading-spinner";
-import Pane from "./components/pane";
-import usePageTitle from "./hooks/page-title";
-import FullscreenButton from "./components/fullscreen-button";
+import { Router, Link } from "../router/scene-router";
+import Box from "../box";
+import LoadingSpinner from "../components/loading-spinner";
+import Pane from "../components/pane";
+import usePageTitle from "../hooks/page-title";
+import FullscreenButton from "../components/fullscreen-button";
 
 const RoomMesh = () => {
   const roomMesh = useLoader(OBJLoader, "/assets/models/room.obj");
@@ -72,7 +72,7 @@ const TestScene = () => {
   );
 };
 
-const CanvasTest = () => {
+const Interactive = () => {
   usePageTitle("Interactive - mtmilo");
 
   return (
@@ -84,4 +84,4 @@ const CanvasTest = () => {
   );
 };
 
-export default CanvasTest;
+export default Interactive;
