@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import FullscreenDisableSvg from "../images/fullscreen-disable.svg?react";
-import FullscreenEnableSvg from "../images/fullscreen-enable.svg?react";
+import FullscreenDisableSvg from "../../images/fullscreen-disable.svg?react";
+import FullscreenEnableSvg from "../../images/fullscreen-enable.svg?react";
 
 const FullscreenButton = (props: {
   elementRef: React.RefObject<HTMLElement>;
 }) => {
-  // https://www.aha.io/engineering/articles/using-the-fullscreen-api-with-react
+  // Fullscreen implementation from https://www.aha.io/engineering/articles/using-the-fullscreen-api-with-react
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Watch for fullscreenchange

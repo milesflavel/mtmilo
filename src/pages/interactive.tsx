@@ -8,7 +8,7 @@ import Box from "../box";
 import LoadingSpinner from "../components/loading-spinner";
 import Pane from "../components/pane";
 import usePageTitle from "../hooks/page-title";
-import FullscreenButton from "../components/fullscreen-button";
+import FullscreenButton from "../components/interactive/fullscreen-button";
 
 const RoomMesh = () => {
   const roomMesh = useLoader(OBJLoader, "/assets/models/room.obj");
