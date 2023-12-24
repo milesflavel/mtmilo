@@ -76,7 +76,7 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
           </Link>
         </Router>
       </Canvas>
-      <div className="absolute right-0 top-0 mr-4 mt-4 overflow-hidden rounded-2xl">
+      <div className="absolute right-0 top-0 mr-4 mt-4">
         <FullscreenButton elementRef={sceneRef} />
       </div>
     </div>

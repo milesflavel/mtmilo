@@ -27,7 +27,7 @@ const FullscreenButton = (props: {
 
   return (
     <button
-      className="bg-purple-500/10 p-3 hover:bg-purple-500/20 focus:bg-purple-500/20"
+      className="rounded-2xl bg-purple-500/10 p-3 hover:bg-purple-500/20 focus:bg-purple-500/20"
       onClick={toggleFullscreen}
       title={isFullscreen ? "Exit full screen" : "Full screen"}
       type="button"
