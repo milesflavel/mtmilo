@@ -37,6 +37,10 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
           basePath="/interactive"
           setPageTitle={props.setPageTitle}
           routes={{
+            "": {
+              cameraPosition: new Vector3(0, 0, 5),
+              pageTitle: "Interactive - mtmilo",
+            },
             "/box/1": {
               cameraPosition: new Vector3(5, 5, 5),
               pageTitle: "Box 1 - mtmilo",
