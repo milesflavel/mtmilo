@@ -39,19 +39,19 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
           routes={{
             "": {
               cameraPosition: new Vector3(0, 0, 5),
-              pageTitle: "Interactive - mtmilo",
+              pageTitle: "Interactive",
             },
             "/box/1": {
               cameraPosition: new Vector3(5, 5, 5),
-              pageTitle: "Box 1 - mtmilo",
+              pageTitle: "Box 1",
             },
             "/box/2": {
               cameraPosition: new Vector3(-5, -5, 5),
-              pageTitle: "Box 2 - mtmilo",
+              pageTitle: "Box 2",
             },
             "/404": {
               cameraPosition: new Vector3(0, 0, 10),
-              pageTitle: "Not Found - mtmilo",
+              pageTitle: "Not Found",
             },
           }}
         >

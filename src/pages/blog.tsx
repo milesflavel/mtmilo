@@ -6,7 +6,7 @@ import usePageTitle from "../hooks/page-title";
 import LayoutWithAside from "../components/layout-with-aside";
 
 const Blog = () => {
-  const setPageTitle = usePageTitle("Blog - mtmilo");
+  const setPageTitle = usePageTitle("Blog");
 
   const params = useParams<{ blogId?: string }>();
   const [content, setContent] = useState<string | null>(null);
@@ -23,10 +23,10 @@ const Blog = () => {
         })
         .then((value) => {
           if (value) {
-            setPageTitle(`${params.blogId} - mtmilo`);
+            setPageTitle(params.blogId);
             setContent(value);
           } else {
-            setPageTitle("Blog - mtmilo");
+            setPageTitle("Blog");
             setContent(null);
           }
         })
@@ -34,7 +34,7 @@ const Blog = () => {
           setLoading(false);
         });
     } else {
-      setPageTitle("Blog - mtmilo");
+      setPageTitle("Blog");
       setContent(null);
       setLoading(false);
     }

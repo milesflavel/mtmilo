@@ -3,7 +3,7 @@ import usePageTitle from "../hooks/page-title";
 import ProfilePhoto from "../images/profile-photo.jpg";
 
 const Home = () => {
-  usePageTitle("Home - mtmilo");
+  usePageTitle("Home");
 
   return (
     <LayoutWithAside

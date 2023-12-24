@@ -5,7 +5,7 @@ import usePageTitle from "../hooks/page-title";
 import Scene from "../components/interactive/scene";
 
 const Interactive = () => {
-  const setPageTitle = usePageTitle("Interactive - mtmilo");
+  const setPageTitle = usePageTitle("Interactive");
 
   return (
     <Pane className="h-full overflow-hidden">
