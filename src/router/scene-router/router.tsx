@@ -12,10 +12,12 @@ export const RouterContext = createContext<{
 const Router = (props: {
   children?: React.ReactNode;
   basePath: string;
+  setPageTitle?: (pageTitle: string) => void;
   routes: {
     [path: string]: {
       cameraPosition: Vector3;
       cameraRotation?: Vector3;
+      pageTitle?: string;
     };
   };
 }) => {
@@ -28,6 +30,11 @@ const Router = (props: {
 
     if (route) {
       setPosition(route.cameraPosition);
+
+      if (props.setPageTitle && route.pageTitle) {
+        props.setPageTitle(route.pageTitle);
+      }
+
       return true;
     }
     return false;
