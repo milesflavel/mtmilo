@@ -65,7 +65,9 @@ const TestScene = () => {
           </Link>
         </Router>
       </Canvas>
-      <FullscreenButton elementRef={sceneRef} />
+      <div className="absolute right-0 top-0 mr-4 mt-4 overflow-hidden rounded-2xl">
+        <FullscreenButton elementRef={sceneRef} />
+      </div>
     </div>
   );
 };
