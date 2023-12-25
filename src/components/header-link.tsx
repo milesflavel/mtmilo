@@ -36,6 +36,8 @@ const HeaderLink = (props: {
             onMouseLeave={handleUnfocus}
             onFocus={handleFocus}
             onBlur={handleUnfocus}
+            onTouchStart={handleFocus}
+            onTouchEnd={handleUnfocus}
           >
             {props.children}
           </a>
@@ -48,6 +50,8 @@ const HeaderLink = (props: {
           onMouseLeave={handleUnfocus}
           onFocus={handleFocus}
           onBlur={handleUnfocus}
+          onTouchStart={handleFocus}
+          onTouchEnd={handleUnfocus}
         >
           {props.children}
         </a>
