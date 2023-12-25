@@ -9,10 +9,10 @@ const App = () => {
   return (
     <>
       <AppBackground />
-      <nav className="z-10 p-4">
+      <nav className="z-10">
         <Header />
       </nav>
-      <div className="flex-grow overflow-hidden p-4">
+      <div className="flex-grow overflow-hidden">
         <Switch>
           <Route path="/">
             <Home />
