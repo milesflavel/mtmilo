@@ -1,10 +1,9 @@
-import { createElement } from "react";
-import BurgerMenuSvg from "../images/icons/burger-menu.svg?react";
-import CloseSvg from "../images/icons/close.svg?react";
-import GithubSvg from "../images/icons/github.svg?react";
-import TwitterSvg from "../images/icons/twitter.svg?react";
-import FullscreenEnableSvg from "../images/icons/fullscreen-enable.svg?react";
-import FullscreenDisableSvg from "../images/icons/fullscreen-disable.svg?react";
+import BurgerMenuSvg from "../images/icons/burger-menu.svg";
+import CloseSvg from "../images/icons/close.svg";
+import GithubSvg from "../images/icons/github.svg";
+import TwitterSvg from "../images/icons/twitter.svg";
+import FullscreenEnableSvg from "../images/icons/fullscreen-enable.svg";
+import FullscreenDisableSvg from "../images/icons/fullscreen-disable.svg";
 
 const ICONS = {
   burgerMenu: BurgerMenuSvg,
@@ -17,12 +16,17 @@ const ICONS = {
 type LogoType = keyof typeof ICONS;
 
 const Icon = (props: { icon: LogoType }) => {
-  const IconElement = () =>
-    createElement(ICONS[props.icon], {
-      className: "w-8 h-8",
-    });
-
-  return <IconElement />;
+  return (
+    <svg
+      className="h-8 w-8"
+      width="100"
+      height="100"
+      viewBox="0, 0, 100, 100"
+      preserveAspectRatio="none"
+    >
+      <use href={`${ICONS[props.icon]}#icon`} />
+    </svg>
+  );
 };
 
 export default Icon;
