@@ -4,7 +4,7 @@ import { Vector3 } from "three";
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import { Router, Link } from "../../router/scene-router";
-import Box from "../../box";
+import Box from "./box";
 import FullscreenButton from "../../components/interactive/fullscreen-button";
 
 const RoomMesh = () => {
