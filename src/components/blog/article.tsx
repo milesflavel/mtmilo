@@ -1,19 +1,15 @@
 import Markdown from "react-markdown";
 import LoadingSpinner from "../loading-spinner";
 import { useEffect, useState } from "react";
+import BlogService, { BlogArticle } from "../../services/blog-service";
 
-const Article = (props: { id: string }) => {
+const Article = (props: { article: BlogArticle }) => {
   const [content, setContent] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/blog/${props.id}.md`)
-      .then((response) => {
-        if (response.ok) {
-          return response.text();
-        }
-      })
+    BlogService.getArticle(props.article.id)
       .then((value) => {
         if (value) {
           setContent(value);
@@ -22,10 +18,10 @@ const Article = (props: { id: string }) => {
       .finally(() => {
         setLoading(false);
       });
-  }, [props.id]);
+  }, [props.article]);
 
   return (
-    <section className="prose prose-neutral prose-invert">
+    <article className="py-4">
       {loading ? (
         <LoadingSpinner />
       ) : content ? (
@@ -33,7 +29,7 @@ const Article = (props: { id: string }) => {
       ) : (
         <div>Not Found</div>
       )}
-    </section>
+    </article>
   );
 };
 

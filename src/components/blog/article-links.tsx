@@ -1,6 +1,7 @@
+import { BlogArticle } from "../../services/blog-service";
 import HeaderLink from "../header-link";
 
-const ArticleLinks = (props: { articles: { id: string; title: string }[] }) => {
+const ArticleLinks = (props: { articles: BlogArticle[] }) => {
   return (
     <>
       <h2 className="pb-3 text-center text-xl font-bold">Articles</h2>
