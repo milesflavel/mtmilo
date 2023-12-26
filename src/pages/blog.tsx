@@ -1,59 +1,50 @@
 import { useEffect, useState } from "react";
 import { useParams } from "wouter";
-import Markdown from "react-markdown";
-import LoadingSpinner from "../components/loading-spinner";
 import usePageTitle from "../hooks/page-title";
 import LayoutWithAside from "../components/layout-with-aside";
+import ArticleLinks from "../components/blog/article-links";
+import Article from "../components/blog/article";
+
+interface BlogArticle {
+  id: string;
+  title: string;
+}
 
 const Blog = () => {
   const setPageTitle = usePageTitle("Blog");
 
   const params = useParams<{ blogId?: string }>();
-  const [content, setContent] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [articles, setArticles] = useState<BlogArticle[]>([]);
 
   useEffect(() => {
-    if (params.blogId) {
-      setLoading(true);
-      fetch(`/blog/${params.blogId}.md`)
-        .then((response) => {
-          if (response.ok) {
-            return response.text();
-          }
-        })
-        .then((value) => {
-          if (value) {
-            setPageTitle(params.blogId);
-            setContent(value);
-          } else {
-            setPageTitle("Blog");
-            setContent(null);
-          }
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+    fetch(`/blog/index.json`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((articles: BlogArticle[]) => {
+        if (articles) {
+          setArticles(articles);
+        }
+      });
+  }, []);
+
+  useEffect(() => {
+    const article = articles.find((article) => article.id === params.blogId);
+    if (article) {
+      setPageTitle(article.title);
     } else {
       setPageTitle("Blog");
-      setContent(null);
-      setLoading(false);
     }
-  }, [params.blogId]);
+  }, [params.blogId, articles]);
 
   return (
     <LayoutWithAside
       main={
-        <section className="prose prose-neutral prose-invert">
-          {loading ? (
-            <LoadingSpinner />
-          ) : content ? (
-            <Markdown>{content}</Markdown>
-          ) : (
-            <div>Not Found</div>
-          )}
-        </section>
+        params.blogId ? <Article id={params.blogId} /> : <div>PLACEHOLDER</div>
       }
-      aside={<></>}
+      aside={<ArticleLinks articles={articles}></ArticleLinks>}
     />
   );
 };
