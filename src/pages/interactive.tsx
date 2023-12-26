@@ -1,8 +1,9 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import LoadingSpinner from "../components/loading-spinner";
 import Pane from "../components/pane";
 import usePageTitle from "../hooks/page-title";
-import Scene from "../components/interactive/scene";
+
+const Scene = lazy(() => import("../components/interactive/scene"));
 
 const Interactive = () => {
   const setPageTitle = usePageTitle("Interactive");

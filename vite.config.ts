@@ -11,13 +11,4 @@ export default defineConfig({
     visualizer(), // Must be last entry
   ],
   assetsInclude: ["**/*.svg"],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          three: ["three"],
-        },
-      },
-    },
-  },
 });
