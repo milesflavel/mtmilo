@@ -47,17 +47,19 @@ const Header = () => {
           className="absolute left-0 top-0 -m-4 h-screen-dvh w-screen-dvw pt-24 sm:hidden"
           onClick={() => setNavMenuOpen(false)}
         >
-          <div className="flex flex-col gap-4 bg-purple-900 p-4">
+          <div className="flex flex-col items-center gap-4 bg-purple-900 p-4">
             <HeaderLink to="/">Home</HeaderLink>
             <HeaderLink to="/blog">Blog</HeaderLink>
             <HeaderLink to="/interactive">Interactive</HeaderLink>
             <HeaderLink href="https://twitter.com/milesflavel">
-              <span className="inline">Twitter</span>
-              <Icon icon="twitter" />
+              <span className="inline-flex items-center gap-4">
+                Twitter <Icon icon="twitter" />
+              </span>
             </HeaderLink>
             <HeaderLink href="https://github.com/milesflavel/mtmilo">
-              <span>Github</span>
-              <Icon icon="github" />
+              <span className="inline-flex items-center gap-4">
+                Github <Icon icon="github" />
+              </span>
             </HeaderLink>
           </div>
         </div>

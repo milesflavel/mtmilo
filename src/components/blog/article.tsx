@@ -2,6 +2,7 @@ import Markdown from "react-markdown";
 import LoadingSpinner from "../loading-spinner";
 import { useEffect, useState } from "react";
 import BlogService, { BlogArticle } from "../../services/blog-service";
+import HeaderLink from "../header-link";
 
 const Article = (props: { article: BlogArticle }) => {
   const [content, setContent] = useState<string | null>(null);
@@ -22,10 +23,25 @@ const Article = (props: { article: BlogArticle }) => {
 
   return (
     <article className="py-4">
+      <HeaderLink to={`/blog/${props.article.id}`}>
+        <h1>{props.article.title}</h1>
+      </HeaderLink>
+
       {loading ? (
         <LoadingSpinner />
       ) : content ? (
-        <Markdown>{content}</Markdown>
+        <Markdown
+          components={{
+            // Skew the header tags because h1 is already used for the article title
+            h1: "h2",
+            h2: "h3",
+            h3: "h4",
+            h4: "h5",
+            h5: "h6",
+          }}
+        >
+          {content}
+        </Markdown>
       ) : (
         <div>Not Found</div>
       )}
