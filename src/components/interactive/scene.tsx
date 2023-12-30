@@ -10,7 +10,7 @@ import FullscreenButton from "../../components/interactive/fullscreen-button";
 const RoomMesh = () => {
   const roomMesh = useLoader(OBJLoader, "/assets/models/room.obj");
 
-  return <primitive object={roomMesh}></primitive>;
+  return <primitive rotation={[0, Math.PI, 0]} object={roomMesh} />;
 };
 
 const ArcadeCabinetMesh = () => {
@@ -20,9 +20,11 @@ const ArcadeCabinetMesh = () => {
   );
 
   return (
-    <mesh rotation={[0, Math.PI, 0]} position={[0, 0, 0]}>
-      <primitive object={arcadeCabinetMesh}></primitive>
-    </mesh>
+    <primitive
+      rotation={[0, Math.PI, 0]}
+      position={[0, 0, 0]}
+      object={arcadeCabinetMesh}
+    />
   );
 };
 
@@ -31,14 +33,14 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
 
   return (
     <div ref={sceneRef} className="relative h-full w-full">
-      <Canvas camera={{ position: [0, 0, 0] }}>
+      <Canvas camera={{ position: [0, 0, 0], fov: 50 }}>
         <OrbitControls />
         <Router
           basePath="/interactive"
           setPageTitle={props.setPageTitle}
           routes={{
             "": {
-              cameraPosition: new Vector3(0, 0, 5),
+              cameraPosition: new Vector3(0, 1.75, 5),
               pageTitle: "Interactive",
             },
             "/box/1": {
@@ -62,7 +64,7 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
             penumbra={1}
             intensity={1000}
           />
-          <pointLight position={[-10, -10, -10]} intensity={1000} />
+          <pointLight position={[0, 2.55, 0]} intensity={20} />
           <RoomMesh />
           <ArcadeCabinetMesh />
           <Link routePath="/box/1">
