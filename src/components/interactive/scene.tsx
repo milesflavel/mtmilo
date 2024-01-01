@@ -1,7 +1,6 @@
 import { Canvas, useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import { Vector3 } from "three";
-import { OrbitControls } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { Router, Link } from "../../router/scene-router";
 import Box from "./box";
@@ -41,19 +40,23 @@ const MountTest = () => {
 const routes: RouteMap = {
   "": {
     cameraPosition: new Vector3(0, 1.75, 5),
+    cameraTarget: new Vector3(0, 1.5, 0),
     pageTitle: "Interactive",
   },
   "/box/1": {
     cameraPosition: new Vector3(5, 5, 5),
+    cameraTarget: new Vector3(1, 1, 0),
     pageTitle: "Box 1",
     component: <MountTest />,
   },
   "/box/2": {
     cameraPosition: new Vector3(-5, -5, 5),
+    cameraTarget: new Vector3(-1, 1, 0),
     pageTitle: "Box 2",
   },
   "/404": {
     cameraPosition: new Vector3(0, 0, 10),
+    cameraTarget: new Vector3(0, 0, 0),
     pageTitle: "Not Found",
   },
 };
@@ -64,7 +67,6 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
   return (
     <div ref={sceneRef} className="relative h-full w-full">
       <Canvas camera={{ position: [0, 0, 0], fov: 50 }}>
-        <OrbitControls />
         <Router
           basePath="/interactive"
           setPageTitle={props.setPageTitle}

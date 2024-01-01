@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import { Vector3 } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useLocation } from "wouter";
@@ -9,7 +9,7 @@ export interface RouteMap {
 
 interface Route {
   cameraPosition: Vector3;
-  cameraRotation?: Vector3;
+  cameraTarget: Vector3;
   pageTitle?: string;
   component?: React.ReactNode;
 }
@@ -29,7 +29,9 @@ const Router = (props: {
   const [location] = useLocation();
   const [activeRoute, setActiveRoute] = useState<Route>({
     cameraPosition: new Vector3(0, 0, 0),
+    cameraTarget: new Vector3(0, 0, 0),
   });
+  const cameraTarget = useRef<Vector3>(new Vector3(0, 0, 0));
 
   const tryNavigate = (routePath: string) => {
     const cleanPath = routePath.replace(props.basePath, "");
@@ -59,6 +61,7 @@ const Router = (props: {
 
   useFrame(({ camera }, delta) => {
     camera.position.lerp(activeRoute.cameraPosition, delta);
+    camera.lookAt(cameraTarget.current.lerp(activeRoute.cameraTarget, delta));
   });
 
   return (
