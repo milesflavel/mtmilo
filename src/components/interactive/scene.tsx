@@ -2,10 +2,11 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import { Vector3 } from "three";
 import { OrbitControls } from "@react-three/drei";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Router, Link } from "../../router/scene-router";
 import Box from "./box";
 import FullscreenButton from "../../components/interactive/fullscreen-button";
+import { RouteMap } from "../../router/scene-router/router";
 
 const RoomMesh = () => {
   const roomMesh = useLoader(OBJLoader, "/assets/models/room.obj");
@@ -28,6 +29,35 @@ const ArcadeCabinetMesh = () => {
   );
 };
 
+const MountTest = () => {
+  useEffect(() => {
+    console.log("Mount", new Date().toLocaleTimeString());
+    return () => console.log("Unmount", new Date().toLocaleTimeString());
+  }, []);
+
+  return <></>;
+};
+
+const routes: RouteMap = {
+  "": {
+    cameraPosition: new Vector3(0, 1.75, 5),
+    pageTitle: "Interactive",
+  },
+  "/box/1": {
+    cameraPosition: new Vector3(5, 5, 5),
+    pageTitle: "Box 1",
+    component: <MountTest />,
+  },
+  "/box/2": {
+    cameraPosition: new Vector3(-5, -5, 5),
+    pageTitle: "Box 2",
+  },
+  "/404": {
+    cameraPosition: new Vector3(0, 0, 10),
+    pageTitle: "Not Found",
+  },
+};
+
 const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
   const sceneRef = useRef<HTMLDivElement>(null);
 
@@ -38,24 +68,7 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
         <Router
           basePath="/interactive"
           setPageTitle={props.setPageTitle}
-          routes={{
-            "": {
-              cameraPosition: new Vector3(0, 1.75, 5),
-              pageTitle: "Interactive",
-            },
-            "/box/1": {
-              cameraPosition: new Vector3(5, 5, 5),
-              pageTitle: "Box 1",
-            },
-            "/box/2": {
-              cameraPosition: new Vector3(-5, -5, 5),
-              pageTitle: "Box 2",
-            },
-            "/404": {
-              cameraPosition: new Vector3(0, 0, 10),
-              pageTitle: "Not Found",
-            },
-          }}
+          routes={routes}
         >
           <ambientLight intensity={0.5} />
           <spotLight

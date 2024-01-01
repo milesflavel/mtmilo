@@ -3,6 +3,17 @@ import { Vector3 } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useLocation } from "wouter";
 
+export interface RouteMap {
+  [path: string]: Route;
+}
+
+interface Route {
+  cameraPosition: Vector3;
+  cameraRotation?: Vector3;
+  pageTitle?: string;
+  component?: React.ReactNode;
+}
+
 export const RouterContext = createContext<{
   basePath: string;
 }>({
@@ -12,24 +23,20 @@ export const RouterContext = createContext<{
 const Router = (props: {
   children?: React.ReactNode;
   basePath: string;
+  routes: RouteMap;
   setPageTitle?: (pageTitle: string) => void;
-  routes: {
-    [path: string]: {
-      cameraPosition: Vector3;
-      cameraRotation?: Vector3;
-      pageTitle?: string;
-    };
-  };
 }) => {
   const [location] = useLocation();
-  const [position, setPosition] = useState<Vector3>(new Vector3(0, 0, 0));
+  const [activeRoute, setActiveRoute] = useState<Route>({
+    cameraPosition: new Vector3(0, 0, 0),
+  });
 
   const tryNavigate = (routePath: string) => {
     const cleanPath = routePath.replace(props.basePath, "");
     const route = props.routes[cleanPath];
 
     if (route) {
-      setPosition(route.cameraPosition);
+      setActiveRoute(route);
 
       if (props.setPageTitle && route.pageTitle) {
         props.setPageTitle(route.pageTitle);
@@ -51,11 +58,12 @@ const Router = (props: {
   }, [location]);
 
   useFrame(({ camera }, delta) => {
-    camera.position.lerp(position, delta);
+    camera.position.lerp(activeRoute.cameraPosition, delta);
   });
 
   return (
     <RouterContext.Provider value={{ basePath: props.basePath }}>
+      {activeRoute.component}
       {props.children}
     </RouterContext.Provider>
   );
