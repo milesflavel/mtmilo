@@ -1,41 +1,31 @@
 import { Canvas, useLoader } from "@react-three/fiber";
-import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import { Vector3 } from "three";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Router, Link } from "../../router/scene-router";
 import Box from "./box";
 import FullscreenButton from "../../components/interactive/fullscreen-button";
 import { RouteMap } from "../../router/scene-router/router";
+import { useGLTF } from "@react-three/drei";
+import { GLTF } from "three-stdlib";
+import SceneGlb from "../../assets/scene.glb?url";
 
-const RoomMesh = () => {
-  const roomMesh = useLoader(OBJLoader, "/assets/models/room.obj");
-
-  return <primitive rotation={[0, Math.PI, 0]} object={roomMesh} />;
+type SceneGltf = GLTF & {
+  nodes: {
+    Room: THREE.Mesh;
+    ArcadeCabinet1: THREE.Mesh;
+    Counter1: THREE.Mesh;
+    Counter2: THREE.Mesh;
+  };
 };
 
-const ArcadeCabinetMesh = () => {
-  const arcadeCabinetMesh = useLoader(
-    OBJLoader,
-    "/assets/models/arcadecabinet1.obj",
-  );
+// const MountTest = () => {
+//   useEffect(() => {
+//     console.log("Mount", new Date().toLocaleTimeString());
+//     return () => console.log("Unmount", new Date().toLocaleTimeString());
+//   }, []);
 
-  return (
-    <primitive
-      rotation={[0, Math.PI, 0]}
-      position={[0, 0, 0]}
-      object={arcadeCabinetMesh}
-    />
-  );
-};
-
-const MountTest = () => {
-  useEffect(() => {
-    console.log("Mount", new Date().toLocaleTimeString());
-    return () => console.log("Unmount", new Date().toLocaleTimeString());
-  }, []);
-
-  return <></>;
-};
+//   return <></>;
+// };
 
 const routes: RouteMap = {
   "": {
@@ -47,7 +37,7 @@ const routes: RouteMap = {
     cameraPosition: new Vector3(5, 5, 5),
     cameraTarget: new Vector3(1, 1, 0),
     pageTitle: "Box 1",
-    component: <MountTest />,
+    // component: <MountTest />,
   },
   "/box/2": {
     cameraPosition: new Vector3(-5, -5, 5),
@@ -63,6 +53,7 @@ const routes: RouteMap = {
 
 const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
   const sceneRef = useRef<HTMLDivElement>(null);
+  const { nodes } = useGLTF(SceneGlb) as SceneGltf;
 
   return (
     <div ref={sceneRef} className="relative h-full w-full">
@@ -80,8 +71,29 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
             intensity={1000}
           />
           <pointLight position={[0, 2.55, 0]} intensity={20} />
-          <RoomMesh />
-          <ArcadeCabinetMesh />
+          <group>
+            <mesh
+              geometry={nodes.Room.geometry}
+              material={nodes.Room.material}
+              rotation={[Math.PI, 0, Math.PI]}
+            />
+            <mesh
+              geometry={nodes.ArcadeCabinet1.geometry}
+              material={nodes.ArcadeCabinet1.material}
+              rotation={[Math.PI, 0, Math.PI]}
+            />
+            <mesh
+              geometry={nodes.Counter1.geometry}
+              material={nodes.Counter1.material}
+              position={[-5, 0, -3]}
+              rotation={[Math.PI, 0, Math.PI]}
+            />
+            <mesh
+              geometry={nodes.Counter2.geometry}
+              material={nodes.Counter2.material}
+              position={[-5, 0, -4.8]}
+            />
+          </group>
           <Link routePath="/box/1">
             <Box position={[-1.2, 0, 0]} />
           </Link>
