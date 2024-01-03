@@ -23,9 +23,11 @@ const Article = (props: { article: BlogArticle }) => {
 
   return (
     <article className="py-4">
-      <HeaderLink to={`/blog/${props.article.id}`}>
-        <h1>{props.article.title}</h1>
-      </HeaderLink>
+      <h1>
+        <HeaderLink to={`/blog/${props.article.id}`} className="font-extrabold">
+          {props.article.title}
+        </HeaderLink>
+      </h1>
 
       {loading ? (
         <LoadingSpinner />
