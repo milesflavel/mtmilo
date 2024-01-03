@@ -10,9 +10,11 @@ const Interactive = () => {
 
   return (
     <Pane className="h-full overflow-hidden">
-      <Suspense fallback={<LoadingSpinner />}>
-        <Scene setPageTitle={setPageTitle} />
-      </Suspense>
+      <main className="h-full">
+        <Suspense fallback={<LoadingSpinner />}>
+          <Scene setPageTitle={setPageTitle} />
+        </Suspense>
+      </main>
     </Pane>
   );
 };
