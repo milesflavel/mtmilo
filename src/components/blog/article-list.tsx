@@ -18,7 +18,7 @@ const ArticleList = (props: { articles: BlogArticle[] }) => {
   return (
     <div className="flex flex-col gap-12 divide-y divide-solid">
       {articlesShown.map((article) => (
-        <Article article={article} />
+        <Article article={article} key={article.id} />
       ))}
     </div>
   );
