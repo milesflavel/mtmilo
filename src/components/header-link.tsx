@@ -14,6 +14,7 @@ const HeaderLink = (props: {
   href?: string;
   children: React.ReactNode;
   className?: string;
+  title?: string;
 }) => {
   const [colourClass, setColourClass] = useState("text-white");
 
@@ -35,6 +36,7 @@ const HeaderLink = (props: {
         <Link to={props.to}>
           <a
             className={className}
+            title={props.title}
             onMouseEnter={handleFocus}
             onMouseLeave={handleUnfocus}
             onFocus={handleFocus}
@@ -49,6 +51,7 @@ const HeaderLink = (props: {
         <a
           href={props.href}
           className={className}
+          title={props.title}
           onMouseEnter={handleFocus}
           onMouseLeave={handleUnfocus}
           onFocus={handleFocus}
