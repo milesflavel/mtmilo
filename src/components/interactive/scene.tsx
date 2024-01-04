@@ -1,4 +1,4 @@
-import { Canvas, useLoader } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { Vector3 } from "three";
 import { useRef } from "react";
 import { Router, Link } from "../../router/scene-router";
@@ -6,17 +6,7 @@ import Box from "./box";
 import FullscreenButton from "../../components/interactive/fullscreen-button";
 import { RouteMap } from "../../router/scene-router/router";
 import { useGLTF } from "@react-three/drei";
-import { GLTF } from "three-stdlib";
 import SceneGlb from "../../assets/scene.glb?url";
-
-type SceneGltf = GLTF & {
-  nodes: {
-    Room: THREE.Mesh;
-    ArcadeCabinet1: THREE.Mesh;
-    Counter1: THREE.Mesh;
-    Counter2: THREE.Mesh;
-  };
-};
 
 // const MountTest = () => {
 //   useEffect(() => {
@@ -53,7 +43,7 @@ const routes: RouteMap = {
 
 const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
   const sceneRef = useRef<HTMLDivElement>(null);
-  const { nodes } = useGLTF(SceneGlb) as SceneGltf;
+  const { nodes } = useGLTF(SceneGlb);
 
   return (
     <div ref={sceneRef} className="relative h-full w-full">
@@ -72,27 +62,10 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
           />
           <pointLight position={[0, 2.55, 0]} intensity={20} />
           <group>
-            <mesh
-              geometry={nodes.Room.geometry}
-              material={nodes.Room.material}
-              rotation={[Math.PI, 0, Math.PI]}
-            />
-            <mesh
-              geometry={nodes.ArcadeCabinet1.geometry}
-              material={nodes.ArcadeCabinet1.material}
-              rotation={[Math.PI, 0, Math.PI]}
-            />
-            <mesh
-              geometry={nodes.Counter1.geometry}
-              material={nodes.Counter1.material}
-              position={[-5, 0, -3]}
-              rotation={[Math.PI, 0, Math.PI]}
-            />
-            <mesh
-              geometry={nodes.Counter2.geometry}
-              material={nodes.Counter2.material}
-              position={[-5, 0, -4.8]}
-            />
+            <primitive object={nodes.Room} />
+            <primitive object={nodes.ArcadeCabinet1} />
+            <primitive object={nodes.Counter1} />
+            <primitive object={nodes.Counter2} />
           </group>
           <Link routePath="/box/1">
             <Box position={[-1.2, 0, 0]} />

@@ -1,29 +1,34 @@
-import { useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { Float, Outlines } from "@react-three/drei";
+import { Vector3 } from "@react-three/fiber";
+import { useState } from "react";
 
-const Box = (props: any) => {
-  // This reference will give us direct access to the mesh
-  const meshRef = useRef<any>();
+const COLOURS = ["#ff55b3", "#1df47f", "#f8dc00", "#19e9fe", "#a577fe"];
 
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
+const Box = (props: { position: Vector3 }) => {
+  const [colour, setColour] = useState("#ffffff");
+  const [outline, setOutline] = useState(0);
 
-  // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame((state, delta) => (meshRef.current.rotation.x += delta));
+  const handleFocus = () => {
+    const newColourIndex = Math.floor(Math.random() * COLOURS.length);
+
+    setColour(COLOURS[newColourIndex]);
+    setOutline(0.05);
+  };
+
+  const handleUnfocus = () => {
+    setColour("#ffffff");
+    setOutline(0);
+  };
 
   // Return view, these are regular three.js elements expressed in JSX
   return (
-    <mesh
-      {...props}
-      ref={meshRef}
-      scale={active ? 1.5 : 1}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
-    >
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
-    </mesh>
+    <Float floatIntensity={1} rotationIntensity={1} position={props.position}>
+      <mesh onPointerOver={handleFocus} onPointerOut={handleUnfocus}>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial color="orange" />
+        <Outlines thickness={outline} color={colour} />
+      </mesh>
+    </Float>
   );
 };
 
