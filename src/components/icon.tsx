@@ -4,10 +4,18 @@ import GithubSvg from "../images/icons/github.svg";
 import TwitterSvg from "../images/icons/twitter.svg";
 import FullscreenEnableSvg from "../images/icons/fullscreen-enable.svg";
 import FullscreenDisableSvg from "../images/icons/fullscreen-disable.svg";
+import ChevronLeftSvg from "../images/icons/chevron-left.svg";
+import ChevronRightSvg from "../images/icons/chevron-right.svg";
+import ChevronUpSvg from "../images/icons/chevron-up.svg";
+import ChevronDownSvg from "../images/icons/chevron-down.svg";
 
 const ICONS = {
   burgerMenu: BurgerMenuSvg,
   close: CloseSvg,
+  chevronLeft: ChevronLeftSvg,
+  chevronRight: ChevronRightSvg,
+  chevronUp: ChevronUpSvg,
+  chevronDown: ChevronDownSvg,
   fullscreenEnable: FullscreenEnableSvg,
   fullscreenDisable: FullscreenDisableSvg,
   github: GithubSvg,
