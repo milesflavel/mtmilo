@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Pane from "../components/pane";
 import HeaderLink from "../components/header-link";
 import Icon from "../components/icon";
-import LogoMtmiloSvg from "../images/logo-mtmilo.svg?react";
+import LogoMtmiloSvg from "../assets/images/logo-mtmilo.svg?react";
 import useLocation from "wouter/use-location";
 
 const Header = () => {

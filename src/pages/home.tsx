@@ -1,6 +1,6 @@
 import LayoutWithAside from "../components/layout-with-aside";
 import usePageTitle from "../hooks/page-title";
-import ProfilePhoto from "../images/profile-photo.jpg";
+import ProfilePhoto from "../assets/images/profile-photo.jpg";
 
 const Home = () => {
   usePageTitle("Home");
