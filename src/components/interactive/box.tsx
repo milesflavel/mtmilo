@@ -12,7 +12,7 @@ const Box = (props: { position: Vector3 }) => {
     const newColourIndex = Math.floor(Math.random() * COLOURS.length);
 
     setColour(COLOURS[newColourIndex]);
-    setOutline(0.05);
+    setOutline(10);
   };
 
   const handleUnfocus = () => {
@@ -26,7 +26,7 @@ const Box = (props: { position: Vector3 }) => {
       <mesh onPointerOver={handleFocus} onPointerOut={handleUnfocus}>
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial color="orange" />
-        <Outlines thickness={outline} color={colour} />
+        <Outlines thickness={outline} color={colour} screenspace />
       </mesh>
     </Float>
   );
