@@ -7,6 +7,7 @@ import FullscreenButton from "../../components/interactive/fullscreen-button";
 import { RouteMap } from "../../router/scene-router/router";
 import { useGLTF } from "@react-three/drei";
 import SceneGlb from "../../assets/scene.glb?url";
+import { A11yAnnouncer } from "@react-three/a11y";
 
 // const MountTest = () => {
 //   useEffect(() => {
@@ -47,6 +48,9 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
 
   return (
     <div ref={sceneRef} className="relative h-full w-full">
+      <div className="absolute right-0 top-0 z-10 mr-4 mt-4">
+        <FullscreenButton elementRef={sceneRef} />
+      </div>
       <Canvas camera={{ position: [0, 0, 0], fov: 50 }}>
         <Router
           basePath="/interactive"
@@ -67,20 +71,18 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
             <primitive object={nodes.Counter1} />
             <primitive object={nodes.Counter2} />
           </group>
-          <Link routePath="/box/1">
+          <Link routePath="/box/1" description="Go to box 1">
             <Box position={[-1.2, 0, 0]} />
           </Link>
-          <Link routePath="/box/2">
+          <Link routePath="/box/2" description="Go to box 1">
             <Box position={[1.2, 0, 0]} />
           </Link>
-          <Link routePath="/box/3">
+          <Link routePath="/box/3" description="Go to box 1">
             <Box position={[1.2, 2.4, 0]} />
           </Link>
         </Router>
       </Canvas>
-      <div className="absolute right-0 top-0 mr-4 mt-4">
-        <FullscreenButton elementRef={sceneRef} />
-      </div>
+      <A11yAnnouncer />
     </div>
   );
 };
