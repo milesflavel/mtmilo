@@ -1,7 +1,7 @@
-import { ReactNode, useContext } from "react";
+import { ReactNode } from "react";
 import useLocation from "wouter/use-location";
-import { RouterContext } from "./router";
 import { A11y } from "@react-three/a11y";
+import { useRouter } from "./router";
 
 const Link = (props: {
   routePath: string;
@@ -9,7 +9,7 @@ const Link = (props: {
   description: string;
 }) => {
   const [_, navigate] = useLocation();
-  const { basePath } = useContext(RouterContext);
+  const { basePath } = useRouter();
   const routePath = basePath + props.routePath;
 
   return (

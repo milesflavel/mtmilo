@@ -1,4 +1,4 @@
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Vector3 } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useLocation } from "wouter";
@@ -14,11 +14,15 @@ interface Route {
   component?: React.ReactNode;
 }
 
-export const RouterContext = createContext<{
+const RouterContext = createContext<{
   basePath: string;
 }>({
   basePath: "/",
 });
+
+const useRouter = () => {
+  return useContext(RouterContext);
+};
 
 const Router = (props: {
   children?: React.ReactNode;
@@ -73,3 +77,4 @@ const Router = (props: {
 };
 
 export default Router;
+export { useRouter };
