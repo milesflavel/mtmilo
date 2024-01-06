@@ -74,10 +74,10 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
           <Link routePath="/box/1" description="Go to box 1">
             <Box position={[-1.2, 0, 0]} />
           </Link>
-          <Link routePath="/box/2" description="Go to box 1">
+          <Link routePath="/box/2" description="Go to box 2">
             <Box position={[1.2, 0, 0]} />
           </Link>
-          <Link routePath="/box/3" description="Go to box 1">
+          <Link routePath="/box/3" description="Go to box 3">
             <Box position={[1.2, 2.4, 0]} />
           </Link>
         </Router>
