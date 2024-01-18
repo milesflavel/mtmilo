@@ -17,20 +17,32 @@ const Box = (props: { position: Vector3 }) => {
     }
   }, [a11y.focus, a11y.hover]);
 
+  const showOutlineHover = a11y.focus || a11y.hover;
+  const showOutlineFocus = a11y.focus;
+
   return (
     <Float floatIntensity={1} rotationIntensity={1} position={props.position}>
       <mesh>
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial color="orange" />
-        {(a11y.focus || a11y.hover) && (
-          <Outlines thickness={OUTLINE} color={colour} />
-        )}
-        {a11y.focus && (
-          <>
-            <Outlines thickness={OUTLINE * 2} color="#000" />
-            <Outlines thickness={OUTLINE * 3} color="#fff" />
-          </>
-        )}
+        <Outlines
+          thickness={OUTLINE}
+          color={colour}
+          transparent={!showOutlineHover}
+          opacity={0}
+        />
+        <Outlines
+          thickness={OUTLINE * 2}
+          color="#000"
+          transparent={!showOutlineFocus}
+          opacity={0}
+        />
+        <Outlines
+          thickness={OUTLINE * 3}
+          color="#fff"
+          transparent={!showOutlineFocus}
+          opacity={0}
+        />
       </mesh>
     </Float>
   );
