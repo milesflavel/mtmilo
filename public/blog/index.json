@@ -1,10 +1,6 @@
 [
   {
-    "id": "1-just-another-test",
-    "title": "Second Test"
-  },
-  {
-    "id": "0-is-this-thing-on",
-    "title": "Test Entry"
+    "id": "0-svg-in-svg",
+    "title": "SVG in SVG"
   }
 ]
