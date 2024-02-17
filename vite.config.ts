@@ -4,11 +4,9 @@ import svgr from "vite-plugin-svgr";
 import Sitemap from "vite-plugin-sitemap";
 import { visualizer } from "rollup-plugin-visualizer";
 import blogIndex from "./public/blog/index.json";
-import fs from "fs";
 
 const getRoute = (entry) => `/blog/${entry.id}`;
-const getLastModified = (entry) =>
-  fs.statSync(`./public/blog/${entry.id}.md`).mtime;
+const getLastModified = (entry) => new Date(entry.modified);
 
 const dynamicRoutes = blogIndex.map((entry) => getRoute(entry));
 const lastmod = Object.fromEntries(

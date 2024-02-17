@@ -1,6 +1,8 @@
 export interface BlogArticle {
   id: string;
   title: string;
+  published: string;
+  modified: string;
 }
 
 const getIndex = (): Promise<BlogArticle[]> =>

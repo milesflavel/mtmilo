@@ -5,11 +5,14 @@ import BlogService, { BlogArticle } from "../../services/blog-service";
 import HeaderLink from "../header-link";
 
 const Article = (props: { article: BlogArticle }) => {
-  const [content, setContent] = useState<string | null>(null);
+  const [content, setContent] = useState<string | undefined>(undefined);
+  const [published, setPublished] = useState<Date | undefined>(undefined);
+  const [modified, setModified] = useState<Date | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     setLoading(true);
+
     BlogService.getArticle(props.article.id)
       .then((value) => {
         if (value) {
@@ -19,15 +22,46 @@ const Article = (props: { article: BlogArticle }) => {
       .finally(() => {
         setLoading(false);
       });
+
+    setPublished(new Date(props.article.published));
+    setModified(
+      props.article.modified !== props.article.published
+        ? new Date(props.article.modified)
+        : undefined,
+    );
   }, [props.article]);
 
   return (
     <article className="py-4">
-      <h1>
-        <HeaderLink to={`/blog/${props.article.id}`} className="font-extrabold">
-          {props.article.title}
-        </HeaderLink>
-      </h1>
+      <header>
+        <h1 className="my-0">
+          <HeaderLink
+            to={`/blog/${props.article.id}`}
+            className="font-extrabold"
+          >
+            {props.article.title}
+          </HeaderLink>
+        </h1>
+
+        <p className="my-0">
+          <span className="text-xs italic">
+            Published{" "}
+            <time dateTime={published?.toISOString()}>
+              {published?.toLocaleDateString()}
+            </time>
+            {modified && (
+              <>
+                {" ("}
+                Last modified{" "}
+                <time dateTime={modified?.toISOString()}>
+                  {modified?.toLocaleDateString()}
+                </time>
+                {")"}
+              </>
+            )}
+          </span>
+        </p>
+      </header>
 
       {loading ? (
         <LoadingSpinner />
