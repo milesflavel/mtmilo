@@ -44,7 +44,13 @@ const routes: RouteMap = {
 
 const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
   const sceneRef = useRef<HTMLDivElement>(null);
-  const { nodes } = useGLTF(SceneGlb);
+  const { nodes, materials } = useGLTF(SceneGlb);
+  Object.values(materials).forEach((m: any) => {
+    if (m.map) {
+      m.map.minFilter = 1005;
+      m.map.magFilter = 1003;
+    }
+  });
 
   return (
     <div ref={sceneRef} className="relative h-full w-full">
