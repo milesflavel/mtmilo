@@ -1,0 +1,108 @@
+<svg
+  width="470"
+  height="160"
+  viewbox="0, 0, 470, 160"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <style>
+    #logo-mtmilo-text, #logo-mtmilo-line {
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 10;
+    }
+
+    #logo-mtmilo-line {
+      stroke-dasharray: 10;
+      stroke-dashoffset: 10;
+      animation: line-reveal 1.82s cubic-bezier(0.7, 0, 0.9, 1.0) forwards;
+    }
+
+    @keyframes line-reveal {
+      0% {
+        stroke-dashoffset: 10;
+      }
+        
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #logo-mtmilo-dot {
+      offset-path: path("M 10,150 C 10,150 210,10 270,10 C 320,10 360,60 360,60 L 370,75");
+      animation:
+        1.82s cubic-bezier(0.7, 0, 0.92, 1.0) 0s 1 forwards dot-move
+    }
+
+    @keyframes dot-move {
+      0% {
+        offset-distance: 0%;
+        fill: #ff55b3;
+        r: 6;
+      }
+
+      70% {
+        r: 7;
+      }
+
+      95% {
+        r: 12;
+        fill: #ff55b3
+      }
+        
+      100% {
+        offset-distance: 100%;
+        r: 5
+        fill: #fff
+      }
+    }
+
+    @keyframes dot-colour-cycle {
+      0% {
+        fill: #ff55b3;
+      }
+
+      20% {
+        fill: #1df47f;
+      }
+
+      40% {
+        fill: #f8dc00;
+      }
+
+      60% {
+        fill: #19e9fe;
+      }
+
+      80% {
+        fill: #a577fe;
+      }
+
+      100% {
+        fill: #ff55b3"
+      }
+    }
+  </style>
+  <g
+    id="logo-mtmilo"
+    color="#fff"
+  >
+    <path
+      id="logo-mtmilo-text"
+      d="M 135 90 L 135 150 M 135 110 C 135 100 145 90 155 90 C 165 90 175 100 175 110 L 175 150 M 175 110 C 175 100 185 90 195 90 C 205 90 215 100 215 110 L 215 150 M 240 70 L 240 150 M 230 90 L 250 90 M 275 90 L 275 150 M 275 110 C 275 100 285 90 295 90 C 305 90 315 100 315 110 L 315 150 M 315 110 C 315 100 325 90 335 90 C 345 90 355 100 355 110 L 355 150 M 370 90 L 370 150 M 385 70 L 385 150 M 430 90 C 448 90 460 102 460 120 C 460 138 448 150 430 150 C 412 150 400 138 400 120 C 400 102 412 90 430 90"
+    />
+    <path
+      id="logo-mtmilo-line"
+      d="M 10 150 C 10 150 210 10 270 10 C 320 10 360 60 360 60"
+      pathLength="10"
+    />
+    <circle
+      id="logo-mtmilo-dot"
+      cx="0"
+      cy="0"
+      r="5"
+      fill="#fff"
+    />
+  </g>
+</svg>

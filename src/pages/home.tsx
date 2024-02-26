@@ -1,6 +1,7 @@
 import LayoutWithAside from "../components/layout-with-aside";
 import usePageTitle from "../hooks/page-title";
 import ProfilePhoto from "../assets/images/profile-photo.jpg";
+import LogoMtmiloAnimated from "../assets/images/logo-mtmilo-animated.svg";
 
 const Home = () => {
   usePageTitle("Home");
@@ -9,7 +10,15 @@ const Home = () => {
     <LayoutWithAside
       main={
         <section className="prose prose-neutral prose-invert">
-          <h1 className="text-center">Welcome!</h1>
+          <header>
+            {/* <LogoMtmiloAnimated /> */}
+            <img
+              src={LogoMtmiloAnimated}
+              className="mx-auto"
+              alt="Mt Milo logo"
+            />
+            <h1 className=" text-center">&mdash;&nbsp;Welcome&nbsp;&mdash;</h1>
+          </header>
 
           <h2>What is this?</h2>
           <p>
