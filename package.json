@@ -6,7 +6,7 @@
     "dev": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview",
-    "prerender": "concurrently -k --kill-signal SIGKILL \"vite build && vite preview\" \"wait-on http://localhost:4173/ && node prerender.mjs\""
+    "prerender": "npx puppeteer browsers install chrome && concurrently -k --kill-signal SIGKILL \"vite build && vite preview\" \"wait-on http://localhost:4173/ && node prerender.mjs\""
   },
   "author": "Miles Flavel",
   "license": "ISC",
