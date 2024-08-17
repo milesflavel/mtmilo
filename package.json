@@ -7,7 +7,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "prerender": "node prerender.mjs",
-    "prerender:ci": "apt install libnss3-dev libxss1 && npx puppeteer browsers install chrome && node prerender.mjs"
+    "prerender:ci": "apt-get update -yy && apt-get install -yy libnss3-dev libxss1 && npx puppeteer browsers install chrome && node prerender.mjs"
   },
   "author": "Miles Flavel",
   "license": "ISC",
