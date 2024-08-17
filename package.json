@@ -6,7 +6,8 @@
     "dev": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview",
-    "prerender": "node prerender.mjs"
+    "prerender": "node prerender.mjs",
+    "prerender:ci": "npx puppeteer browsers install chrome && sudo apt install libnss3-dev libxss1 && node prerender.mjs"
   },
   "author": "Miles Flavel",
   "license": "ISC",
