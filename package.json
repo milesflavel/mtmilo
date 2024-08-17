@@ -6,7 +6,7 @@
     "dev": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview",
-    "prerender": "concurrently -k --kill-signal SIGKILL \"vite build && vite preview\" \"wait-on http://localhost:4173/ && node prerender.mjs\""
+    "prerender": "node prerender.mjs"
   },
   "author": "Miles Flavel",
   "license": "ISC",
@@ -27,7 +27,6 @@
     "@types/three": "^0.155.0",
     "@vitejs/plugin-react": "^4.0.4",
     "autoprefixer": "^10.4.16",
-    "concurrently": "^8.2.2",
     "postcss": "^8.4.31",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "puppeteer": "^22.12.1",
@@ -36,7 +35,6 @@
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-sitemap": "^0.5.3",
-    "vite-plugin-svgr": "^4.1.0",
-    "wait-on": "^7.2.0"
+    "vite-plugin-svgr": "^4.1.0"
   }
 }
