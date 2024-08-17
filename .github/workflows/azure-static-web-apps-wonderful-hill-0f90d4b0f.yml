@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Install Puppeteer
-        run: npx puppeteer browsers install chrome && apt install libnss3-dev libxss1
+        run: npx puppeteer browsers install chrome && sudo apt install libnss3-dev libxss1
 
       - name: Build, Prerender And Deploy
         id: builddeploy
