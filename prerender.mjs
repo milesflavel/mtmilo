@@ -4,7 +4,7 @@ import fs from "fs";
 import { build, preview } from "vite";
 
 // Config
-const staticRoutes = ["", "blog", "interactive"];
+const staticRoutes = ["", "blog"];
 const dynamicRoutes = blogIndex.map((entry) => `blog/${entry.id}`);
 
 // Build
@@ -47,6 +47,8 @@ for (const route of [...staticRoutes, ...dynamicRoutes]) {
     }
     console.log(`Done writing file ${filePath}`);
   });
+
+  await page.close();
 }
 
 // Teardown
