@@ -20,12 +20,11 @@ jobs:
           submodules: true
           lfs: false
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
+      - name: Clean Install
+        run: npm ci
 
-      - run: npm ci
-        name: Clean Install
+      - name: Install Puppeteer
+        run: npx puppeteer browsers install chrome && apt install libnss3-dev libxss1
 
       - name: Build, Prerender And Deploy
         id: builddeploy
