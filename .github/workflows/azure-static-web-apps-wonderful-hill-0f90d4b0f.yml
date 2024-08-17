@@ -20,11 +20,11 @@ jobs:
           submodules: true
           lfs: false
 
-      - name: Clean Install
-        run: npm ci
-
       - name: Install Puppeteer dependencies
-        run: sudo apt install libnss3-dev libxss1
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: libnss3-dev libxss1
+          version: 1.0
 
       - name: Build, Prerender And Deploy
         id: builddeploy
