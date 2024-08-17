@@ -18,7 +18,10 @@ const baseUrl = previewServer.resolvedUrls.local[0];
 const outputDir = previewServer.config.build.outDir;
 
 console.log("Starting browser");
-const browser = await puppeteer.launch({ headless: true });
+const browser = await puppeteer.launch({
+  headless: true,
+  args: ["--no-sandbox"],
+});
 
 // Rendering
 for (const route of [...staticRoutes, ...dynamicRoutes]) {
