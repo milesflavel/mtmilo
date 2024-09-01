@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "wouter";
+import { useLocation, useParams } from "wouter";
 import usePageTitle from "../hooks/page-title";
 import LayoutWithAside from "../components/layout-with-aside";
 import ArticleLinks from "../components/blog/article-links";
@@ -9,10 +9,13 @@ import BlogService, { BlogArticle } from "../services/blog-service";
 import useOpenGraph from "../hooks/open-graph";
 import openGraphImageUrl from "../assets/images/open-graph.png?url";
 
+const BASE_URL = "https://www.mtmilo.net";
+
 const Blog = () => {
   const setPageTitle = usePageTitle("Blog");
   const setOpenGraph = useOpenGraph({});
 
+  const [location] = useLocation();
   const params = useParams<{ blogId?: string }>();
   const [articles, setArticles] = useState<BlogArticle[]>([]);
   const [article, setArticle] = useState<BlogArticle | null>(null);
@@ -34,8 +37,8 @@ const Blog = () => {
       setOpenGraph({
         title: foundArticle.title,
         type: "article",
-        url: window.location.href,
-        image: openGraphImageUrl,
+        url: `${BASE_URL}${location}`,
+        image: `${BASE_URL}${openGraphImageUrl}`,
         description: foundArticle.description,
         articlePublished: foundArticle.published,
         articleModified: foundArticle.modified,
