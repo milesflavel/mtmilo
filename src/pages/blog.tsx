@@ -6,9 +6,12 @@ import ArticleLinks from "../components/blog/article-links";
 import Article from "../components/blog/article";
 import ArticleList from "../components/blog/article-list";
 import BlogService, { BlogArticle } from "../services/blog-service";
+import useOpenGraph from "../hooks/open-graph";
+import openGraphImageUrl from "../assets/images/open-graph.png?url";
 
 const Blog = () => {
   const setPageTitle = usePageTitle("Blog");
+  const setOpenGraph = useOpenGraph({});
 
   const params = useParams<{ blogId?: string }>();
   const [articles, setArticles] = useState<BlogArticle[]>([]);
@@ -28,9 +31,19 @@ const Blog = () => {
     );
     if (foundArticle) {
       setPageTitle(foundArticle.title);
+      setOpenGraph({
+        title: foundArticle.title,
+        type: "article",
+        url: window.location.href,
+        image: openGraphImageUrl,
+        description: foundArticle.description,
+        articlePublished: foundArticle.published,
+        articleModified: foundArticle.modified,
+      });
       setArticle(foundArticle);
     } else {
       setPageTitle("Blog");
+      setOpenGraph({});
       setArticle(null);
     }
   }, [params.blogId, articles]);

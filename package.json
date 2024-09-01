@@ -1,6 +1,6 @@
 {
   "name": "mtmilo-app",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "mtmilo.net web app",
   "scripts": {
     "dev": "vite --port 3000",

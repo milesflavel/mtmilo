@@ -2,6 +2,7 @@
   {
     "id": "0-svg-in-svg",
     "title": "SVG in SVG",
+    "description": "A nested resource pattern & when to use it",
     "published": "2024-02-14",
     "modified": "2024-02-14"
   }

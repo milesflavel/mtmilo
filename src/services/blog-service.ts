@@ -1,6 +1,7 @@
 export interface BlogArticle {
   id: string;
   title: string;
+  description: string;
   published: string;
   modified: string;
 }
