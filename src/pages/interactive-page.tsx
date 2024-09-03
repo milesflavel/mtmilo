@@ -5,7 +5,7 @@ import usePageTitle from "../hooks/page-title";
 
 const Scene = lazy(() => import("../components/interactive/scene"));
 
-const Interactive = () => {
+const InteractivePage = () => {
   const setPageTitle = usePageTitle("Interactive");
 
   return (
@@ -19,4 +19,4 @@ const Interactive = () => {
   );
 };
 
-export default Interactive;
+export default InteractivePage;

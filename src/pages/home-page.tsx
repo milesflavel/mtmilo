@@ -3,7 +3,7 @@ import usePageTitle from "../hooks/page-title";
 import ProfilePhoto from "../assets/images/profile-photo.jpg";
 import LogoMtmiloAnimated from "../assets/images/logo-mtmilo-animated.svg";
 
-const Home = () => {
+const HomePage = () => {
   usePageTitle("Home");
 
   return (
@@ -57,4 +57,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

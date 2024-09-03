@@ -1,0 +1,62 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="200"
+  height="200"
+  viewbox="0, 0, 200, 200"
+>
+  <style>
+    <!--
+      Style configuration
+      This must be manually updated to align with index.css
+    -->
+    :root {
+      --palette-accent1: #ff55b3;
+      --palette-accent2: #1df47f;
+      --palette-accent3: #f8dc00;
+      --palette-accent4: #19e9fe;
+      --palette-accent5: #a577fe;
+      font-family: sans-serif;
+    }
+  </style>
+
+  <path
+    d="M 50 50 L 150 150
+      M 50 150 L 150 50"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="10"
+    stroke="var(--palette-accent1)"
+  >
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 100 100"
+      to="360 100 100"
+      dur="120s"
+      repeatCount="indefinite"
+    ></animateTransform></path>
+
+  <defs>
+    <path
+      id="ErrorTextPath"
+      d="M 0 40
+        c 0 0, 45 -10, 95 -10
+        c 50 0, 95 10, 95 10"
+    ></path>
+  </defs>
+  <text
+    textLength="182"
+    font-size="30px"
+    fill="var(--palette-accent3)"
+  >
+    <textPath
+      href="#ErrorTextPath"
+      startOffset="50%"
+      text-anchor="middle"
+    >
+      404 Not Found
+    </textPath>
+  </text>
+</svg>
