@@ -60,6 +60,18 @@ module.exports = {
         "screen-lvw": ["100vw", "100lvw"],
         "screen-dvw": ["100vw", "100dvw"],
       },
+      typography: () => ({
+        DEFAULT: {
+          css: {
+            pre: {
+              paddingTop: 0,
+              paddingInlineEnd: 0,
+              paddingBottom: 0,
+              paddingInlineStart: 0,
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [require("@tailwindcss/typography")],

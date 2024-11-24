@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import BlogService, { BlogArticle } from "../../services/blog-service";
 import HeaderLink from "../header-link";
 import rehypeSlug from "rehype-slug";
+import rehypeHighlight from "rehype-highlight";
+import "../../shades-of-purple.css";
 
 const Article = (props: { article: BlogArticle; stub?: boolean }) => {
   const [content, setContent] = useState<string | undefined>(undefined);
@@ -86,7 +88,7 @@ const Article = (props: { article: BlogArticle; stub?: boolean }) => {
               h4: "h5",
               h5: "h6",
             }}
-            rehypePlugins={[rehypeSlug]}
+            rehypePlugins={[rehypeSlug, rehypeHighlight]}
           >
             {content}
           </Markdown>
