@@ -5,5 +5,12 @@
     "description": "A nested resource pattern & when to use it",
     "published": "2024-02-14",
     "modified": "2024-02-14"
+  },
+  {
+    "id": "1-prerendered-swa",
+    "title": "TODO: Prerendering a Static Web App",
+    "description": "TODO",
+    "published": "2024-11-24",
+    "modified": "2024-11-24"
   }
 ]
