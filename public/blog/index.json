@@ -5,5 +5,12 @@
     "description": "A nested resource pattern & when to use it",
     "published": "2024-02-14",
     "modified": "2024-02-14"
+  },
+  {
+    "id": "1-prerendered-swa",
+    "title": "Prerender Your SPA",
+    "description": "A (mostly) framework agnostic guide to setting up SSG for us who should know better",
+    "published": "2024-11-25",
+    "modified": "2024-11-25"
   }
 ]
