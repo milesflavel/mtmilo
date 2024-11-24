@@ -4,11 +4,20 @@ import { useEffect, useState } from "react";
 import BlogService, { BlogArticle } from "../../services/blog-service";
 import HeaderLink from "../header-link";
 
-const Article = (props: { article: BlogArticle }) => {
+const Article = (props: { article: BlogArticle; stub?: boolean }) => {
   const [content, setContent] = useState<string | undefined>(undefined);
   const [published, setPublished] = useState<Date | undefined>(undefined);
   const [modified, setModified] = useState<Date | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const getStub = (content: string) => {
+    return content
+      .split(/(?:\n|\r|\r\n){2}/)
+      .filter(Boolean)
+      .slice(0, 10)
+      .join("\n")
+      .concat("\n...");
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -16,7 +25,7 @@ const Article = (props: { article: BlogArticle }) => {
     BlogService.getArticle(props.article.id)
       .then((value) => {
         if (value) {
-          setContent(value);
+          setContent(props.stub ? getStub(value) : value);
         }
       })
       .finally(() => {
@@ -66,18 +75,25 @@ const Article = (props: { article: BlogArticle }) => {
       {loading ? (
         <LoadingSpinner />
       ) : content ? (
-        <Markdown
-          components={{
-            // Skew the header tags because h1 is already used for the article title
-            h1: "h2",
-            h2: "h3",
-            h3: "h4",
-            h4: "h5",
-            h5: "h6",
-          }}
-        >
-          {content}
-        </Markdown>
+        <>
+          <Markdown
+            components={{
+              // Skew the header tags because h1 is already used for the article title
+              h1: "h2",
+              h2: "h3",
+              h3: "h4",
+              h4: "h5",
+              h5: "h6",
+            }}
+          >
+            {content}
+          </Markdown>
+          {props.stub && (
+            <HeaderLink to={`/blog/${props.article.id}`}>
+              Continue reading
+            </HeaderLink>
+          )}
+        </>
       ) : (
         <div>Not Found</div>
       )}

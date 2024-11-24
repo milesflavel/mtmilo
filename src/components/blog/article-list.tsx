@@ -23,7 +23,7 @@ const ArticleList = (props: { articles: BlogArticle[] }) => {
     <>
       <div className="flex flex-col gap-12 divide-y divide-solid">
         {articlesShown.map((article) => (
-          <Article article={article} key={article.id} />
+          <Article article={article} stub key={article.id} />
         ))}
       </div>
       <footer className="flex items-center justify-center gap-4">
