@@ -29,10 +29,10 @@ const Header = () => {
       </div>
       <div className="hidden items-center gap-4 sm:flex">
         <HeaderLink
-          href="https://twitter.com/milesflavel"
-          title="Miles Flavel on Twitter"
+          href="https://bsky.app/profile/mtmilo.net"
+          title="mtmilo on BlueSky"
         >
-          <Icon icon="twitter" />
+          <Icon icon="bluesky" />
         </HeaderLink>
         <HeaderLink
           href="https://github.com/milesflavel/mtmilo"

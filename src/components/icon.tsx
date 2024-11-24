@@ -2,6 +2,7 @@ import BurgerMenuSvg from "../assets/images/icons/burger-menu.svg";
 import CloseSvg from "../assets/images/icons/close.svg";
 import GithubSvg from "../assets/images/icons/github.svg";
 import TwitterSvg from "../assets/images/icons/twitter.svg";
+import BlueskySvg from "../assets/images/icons/bluesky.svg";
 import FullscreenEnableSvg from "../assets/images/icons/fullscreen-enable.svg";
 import FullscreenDisableSvg from "../assets/images/icons/fullscreen-disable.svg";
 import ChevronLeftSvg from "../assets/images/icons/chevron-left.svg";
@@ -20,6 +21,7 @@ const ICONS = {
   fullscreenDisable: FullscreenDisableSvg,
   github: GithubSvg,
   twitter: TwitterSvg,
+  bluesky: BlueskySvg,
 };
 type LogoType = keyof typeof ICONS;
 
