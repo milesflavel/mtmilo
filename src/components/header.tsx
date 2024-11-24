@@ -71,11 +71,11 @@ const Header = () => {
               Interactive
             </HeaderLink>
             <HeaderLink
-              href="https://twitter.com/milesflavel"
-              title="Miles Flavel on Twitter"
+              href="https://bsky.app/profile/mtmilo.net"
+              title="mtmilo on BlueSky"
             >
               <span className="inline-flex items-center gap-4">
-                Twitter <Icon icon="twitter" />
+                Bluesky <Icon icon="bluesky" />
               </span>
             </HeaderLink>
             <HeaderLink
