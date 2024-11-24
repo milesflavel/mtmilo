@@ -3,6 +3,7 @@ import LoadingSpinner from "../loading-spinner";
 import { useEffect, useState } from "react";
 import BlogService, { BlogArticle } from "../../services/blog-service";
 import HeaderLink from "../header-link";
+import rehypeSlug from "rehype-slug";
 
 const Article = (props: { article: BlogArticle; stub?: boolean }) => {
   const [content, setContent] = useState<string | undefined>(undefined);
@@ -85,6 +86,7 @@ const Article = (props: { article: BlogArticle; stub?: boolean }) => {
               h4: "h5",
               h5: "h6",
             }}
+            rehypePlugins={[rehypeSlug]}
           >
             {content}
           </Markdown>
