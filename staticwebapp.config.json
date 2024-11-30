@@ -1,10 +1,7 @@
 {
-  "trailingSlash": "auto",
+  "trailingSlash": "never",
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": [
-      "*.{jpg,gif,png}",
-      "assets/*"
-    ]
+    "exclude": ["*.{jpg,gif,png}", "assets/*"]
   }
 }
