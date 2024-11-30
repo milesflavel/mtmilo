@@ -18,7 +18,7 @@ Enter Server-Side Generation (SSG).
 
 ## Server-Side Generation
 
-SSG, also known as Prerendering, is the process of running the clientt code for your site ahead of time and saving a copy of the _generated_ HTML.
+SSG, also known as Prerendering, is the process of running the client code for your site ahead of time and saving a copy of the _generated_ HTML.
 
 Once you have static HTML, you serve it directly as your site and, optionally, rehydrate it with your client code to make it behave with all the interactivity you built it for.
 
