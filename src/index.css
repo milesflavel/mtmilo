@@ -4,6 +4,7 @@
 
 :root {
   font-family: sans-serif;
+  scrollbar-color: theme(colors.accent.purple) transparent;
 }
 
 /* Code block highlighting */
