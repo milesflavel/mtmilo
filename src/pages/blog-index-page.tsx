@@ -15,7 +15,7 @@ const BlogIndexPage = () => {
   useEffect(() => {
     BlogService.getIndex().then((articles: BlogArticle[]) => {
       if (articles) {
-        setArticles(articles);
+        setArticles(articles.reverse());
       }
     });
   }, []);
