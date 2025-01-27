@@ -5,6 +5,10 @@ import Sitemap from "vite-plugin-sitemap";
 import { visualizer } from "rollup-plugin-visualizer";
 import blogIndex from "./public/blog/index.json";
 
+const ReactCompilerConfig = {
+  target: "18",
+};
+
 const getRoute = (entry) => `/blog/${entry.id}`;
 const getLastModified = (entry) => new Date(entry.modified);
 
@@ -16,7 +20,11 @@ const lastmod = Object.fromEntries(
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
+      },
+    }),
     svgr(),
     Sitemap({
       dynamicRoutes: dynamicRoutes,
