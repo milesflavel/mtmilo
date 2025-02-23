@@ -30,18 +30,21 @@ const Box = (props: { position: Vector3 }) => {
           color={colour}
           transparent={!showOutlineHover}
           opacity={0}
+          screenspace
         />
         <Outlines
           thickness={OUTLINE * 2}
           color="#000"
           transparent={!showOutlineFocus}
           opacity={0}
+          screenspace
         />
         <Outlines
           thickness={OUTLINE * 3}
           color="#fff"
           transparent={!showOutlineFocus}
           opacity={0}
+          screenspace
         />
       </mesh>
     </Float>
