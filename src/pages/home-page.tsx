@@ -2,9 +2,11 @@ import LayoutWithAside from "../components/layout-with-aside";
 import usePageTitle from "../hooks/page-title";
 import ProfilePhoto from "../assets/images/profile-photo.jpg";
 import LogoMtmiloAnimated from "../assets/images/logo-mtmilo-animated.svg";
+import useOpenGraph from "../hooks/open-graph";
 
 const HomePage = () => {
   usePageTitle("Home");
+  useOpenGraph({});
 
   return (
     <LayoutWithAside

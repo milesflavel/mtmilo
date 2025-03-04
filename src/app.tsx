@@ -1,4 +1,4 @@
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import AppBackground from "./components/app-background";
 import Header from "./components/header";
 import HomePage from "./pages/home-page";
@@ -6,8 +6,12 @@ import BlogArticlePage from "./pages/blog-article-page";
 import BlogIndexPage from "./pages/blog-index-page";
 import InteractivePage from "./pages/interactive-page";
 import Error404Page from "./pages/error-404-page";
+import useCanonicalLink from "./hooks/canonical-link";
 
 const App = () => {
+  const [location] = useLocation();
+  useCanonicalLink("www.mtmilo.net" + location.replace(/\/+$/, ""));
+
   return (
     <>
       <AppBackground />
