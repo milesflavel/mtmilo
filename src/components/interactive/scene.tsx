@@ -75,6 +75,8 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
             <primitive object={nodes.Room} />
             <primitive object={nodes.ArcadeCabinet1} />
             <primitive object={nodes.Counter1} />
+            <primitive object={nodes.Cup1} />
+            <primitive object={nodes.Cup2} />
           </group>
           <Link routePath="/box/1" description="Go to box 1">
             <Box position={[-1.2, 0, 0]} />
