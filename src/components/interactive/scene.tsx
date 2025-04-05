@@ -24,6 +24,11 @@ const routes: RouteMap = {
     cameraTarget: new Vector3(0, 1.5, 0),
     pageTitle: "Interactive",
   },
+  "/counter": {
+    cameraPosition: new Vector3(-3, 1.75, 2),
+    cameraTarget: new Vector3(-2.5, 1.5, -3),
+    pageTitle: "The Counter",
+  },
   "/box/1": {
     cameraPosition: new Vector3(5, 5, 5),
     cameraTarget: new Vector3(1, 1, 0),
@@ -74,7 +79,9 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
           <group>
             <primitive object={nodes.Room} />
             <primitive object={nodes.ArcadeCabinet1} />
-            <primitive object={nodes.Counter1} />
+            <Link routePath="/counter" description="Go to the counter">
+              <primitive object={nodes.Counter1} />
+            </Link>
             <primitive object={nodes.Cup1} />
             <primitive object={nodes.Cup2} />
           </group>
