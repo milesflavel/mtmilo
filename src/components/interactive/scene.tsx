@@ -1,5 +1,5 @@
-import { Canvas } from "@react-three/fiber";
-import { Vector3 } from "three";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Color, PointLight, Vector3 } from "three";
 import { useRef } from "react";
 import { Router, Link } from "../../router/scene-router";
 import Box from "./box";
@@ -18,6 +18,27 @@ import { A11yAnnouncer } from "@react-three/a11y";
 //   return <></>;
 // };
 
+const ArcadeCabinetActive = () => {
+  const pointLightRef = useRef<PointLight>(null);
+  const lastUpdate = useRef(0);
+  useFrame((_, delta) => {
+    if (lastUpdate.current > 0.2) {
+      pointLightRef.current?.color.setRGB(
+        0.75 + Math.random() / 4,
+        0.75 + Math.random() / 4,
+        0.75 + Math.random() / 4,
+      );
+      lastUpdate.current = 0;
+    }
+    lastUpdate.current += delta;
+  });
+
+  return (
+    <pointLight ref={pointLightRef} position={[2, 1.6, -3.1]} intensity={0.2} />
+  );
+};
+
+// Coordinates are [x,z,y]
 const routes: RouteMap = {
   "": {
     cameraPosition: new Vector3(0, 1.75, 5),
@@ -28,6 +49,12 @@ const routes: RouteMap = {
     cameraPosition: new Vector3(-3, 1.75, 2),
     cameraTarget: new Vector3(-2.5, 1.5, -3),
     pageTitle: "The Counter",
+  },
+  "/arcade-cabinet": {
+    cameraPosition: new Vector3(2, 1.75, -1),
+    cameraTarget: new Vector3(2, 1.4, -3.6),
+    pageTitle: "Arcade Cabinet",
+    component: <ArcadeCabinetActive />,
   },
   "/box/1": {
     cameraPosition: new Vector3(5, 5, 5),
@@ -69,16 +96,16 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
           routes={routes}
         >
           <ambientLight intensity={0.5} />
-          <spotLight
-            position={[10, 10, 10]}
-            angle={0.15}
-            penumbra={1}
-            intensity={1000}
-          />
-          <pointLight position={[0, 2.55, 0]} intensity={20} />
+          <pointLight position={[-3.75, 2.5, -3]} intensity={2} />
+          <pointLight position={[-1.55, 2.5, -3]} intensity={2} />
           <group>
             <primitive object={nodes.Room} />
-            <primitive object={nodes.ArcadeCabinet1} />
+            <Link
+              routePath="/arcade-cabinet"
+              description="Go to the arcade cabinet"
+            >
+              <primitive object={nodes.ArcadeCabinet1} />
+            </Link>
             <Link routePath="/counter" description="Go to the counter">
               <primitive object={nodes.Counter1} />
             </Link>
