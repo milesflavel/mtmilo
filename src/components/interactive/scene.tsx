@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Color, PointLight, Vector3 } from "three";
+import { PointLight, Vector3 } from "three";
 import { useRef } from "react";
 import { Router, Link } from "../../router/scene-router";
 import Box from "./box";
@@ -8,6 +8,7 @@ import { RouteMap } from "../../router/scene-router/router";
 import { useGLTF } from "@react-three/drei";
 import SceneGlb from "../../assets/scene.glb?url";
 import { A11yAnnouncer } from "@react-three/a11y";
+import { AspectDependantFovPerspectiveCamera } from "./aspect-dependant-fov-perspective-camera";
 
 // const MountTest = () => {
 //   useEffect(() => {
@@ -89,7 +90,8 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
       <div className="absolute right-0 top-0 z-10 mr-4 mt-4">
         <FullscreenButton elementRef={sceneRef} />
       </div>
-      <Canvas camera={{ position: [0, 0, 0], fov: 50 }}>
+      <Canvas>
+        <AspectDependantFovPerspectiveCamera fov={60} />
         <Router
           basePath="/interactive"
           setPageTitle={props.setPageTitle}
