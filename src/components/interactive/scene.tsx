@@ -111,6 +111,8 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
             <Link routePath="/counter" description="Go to the counter">
               <primitive object={nodes.Counter1} />
             </Link>
+            <primitive object={nodes.Shelf1} />
+            <primitive object={nodes.Shelf2} />
             <primitive object={nodes.Cup1} />
             <primitive object={nodes.Cup2} />
           </group>
