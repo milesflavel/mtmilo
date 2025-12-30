@@ -3,6 +3,7 @@ import usePageTitle from "../hooks/page-title";
 import ProfilePhoto from "../assets/images/profile-photo.jpg";
 import LogoMtmiloAnimated from "../assets/images/logo-mtmilo-animated.svg";
 import useOpenGraph from "../hooks/open-graph";
+import PhotoFrame from "../components/photo-frame";
 
 const HomePage = () => {
   usePageTitle("Home");
@@ -39,15 +40,7 @@ const HomePage = () => {
       }
       aside={
         <>
-          <figure>
-            <img
-              src={ProfilePhoto}
-              className="rounded-2xl border-4 border-solid border-accent-purple"
-            />
-            <figcaption className="py-3 text-center text-xl font-bold">
-              Miles Flavel
-            </figcaption>
-          </figure>
+          <PhotoFrame src={ProfilePhoto} caption="Miles" />
           <ul className="list-disc pl-10">
             <li>Fullstack Dev</li>
             <li>Transit Nerd</li>
