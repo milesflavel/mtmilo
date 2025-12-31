@@ -40,7 +40,7 @@ const HomePage = () => {
       }
       aside={
         <>
-          <PhotoFrame src={ProfilePhoto} caption="Miles" />
+          <PhotoFrame src={ProfilePhoto} caption="Miles" alt="Photo of Miles" />
           <ul className="list-disc pl-10">
             <li>Fullstack Dev</li>
             <li>Transit Nerd</li>
