@@ -23,28 +23,40 @@ const HomePage = () => {
             <h1 className=" text-center">&mdash;&nbsp;Welcome&nbsp;&mdash;</h1>
           </header>
 
-          <h2>What is this?</h2>
+          <h2>Who am I?</h2>
           <p>
-            Part portfolio, part blog&ndash; This is my dumping ground for
-            ideas, projects and journeys into doing things the hard way.
+            I am a fullstack web dev with over 12 years of experience across a
+            broad range of technologies. In recent years, I've been focussing on
+            User Experience (UX) and Accessibility (A11Y), which are each a
+            rabbit-hole unto themself but have been fascinating nonetheless.
           </p>
 
-          <h2>What's the vision here?</h2>
+          <h2>Outside of work</h2>
           <p>
-            I'm a full-time, full-stack, full-on developer with no website. The
-            plan here is to change that. I've got a soft spot for
-            non-traditional websites, so the long-term goal is for this whole
-            site to exist as an interactive experience.
+            I'm a massive nerd; I play D&D, enjoy electronics, listen to an
+            unreasonable amount of game soundtracks, and have amassed a small
+            collection of <i>mostly broken</i> cameras.
+          </p>
+          <p>
+            I am passionate about sustainability and public transport. I walk
+            everywhere and take the stairs whenever possible. I'm an advocate
+            for{" "}
+            <a href="https://en.wikipedia.org/wiki/Right_to_repair">
+              Right to Repair
+            </a>
+            , believing that if pay for and receive a physical item, then you
+            own it and should be free to repair and modify it as you wish.
           </p>
         </section>
       }
       aside={
         <>
           <PhotoFrame src={ProfilePhoto} caption="Miles" alt="Photo of Miles" />
-          <ul className="list-disc pl-10">
-            <li>Fullstack Dev</li>
-            <li>Transit Nerd</li>
-            <li>Repair Advocate</li>
+          <ul className="list-disc pl-10 pt-2">
+            <li>Passionate Dev</li>
+            <li>Big Nerd</li>
+            <li>Advocate</li>
+            <li>Always Learning</li>
           </ul>
         </>
       }
