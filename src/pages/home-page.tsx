@@ -44,8 +44,8 @@ const HomePage = () => {
             <a href="https://en.wikipedia.org/wiki/Right_to_repair">
               Right to Repair
             </a>
-            , believing that if pay for and receive a physical item, then you
-            own it and should be free to repair and modify it as you wish.
+            , believing that if you buy something then you own it and should be
+            free to repair or modify it as you wish.
           </p>
         </section>
       }
