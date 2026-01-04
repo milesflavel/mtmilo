@@ -2,13 +2,13 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { PointLight, Vector3 } from "three";
 import { useRef } from "react";
 import { Router, Link } from "../../router/scene-router";
-import Box from "./box";
 import FullscreenButton from "../../components/interactive/fullscreen-button";
 import { RouteMap } from "../../router/scene-router/router";
-import { useGLTF } from "@react-three/drei";
+import { Float, useGLTF } from "@react-three/drei";
 import SceneGlb from "../../assets/scene.glb?url";
 import { A11yAnnouncer } from "@react-three/a11y";
 import { AspectDependantFovPerspectiveCamera } from "./aspect-dependant-fov-perspective-camera";
+import Clickable from "./clickable";
 
 // const MountTest = () => {
 //   useEffect(() => {
@@ -106,10 +106,14 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
               routePath="/arcade-cabinet"
               description="Go to the arcade cabinet"
             >
-              <primitive object={nodes.ArcadeCabinet1} />
+              <Clickable>
+                <primitive object={nodes.ArcadeCabinet1} />
+              </Clickable>
             </Link>
             <Link routePath="/counter" description="Go to the counter">
-              <primitive object={nodes.Counter1} />
+              <Clickable>
+                <primitive object={nodes.Counter1} />
+              </Clickable>
             </Link>
             <primitive object={nodes.Shelf1} />
             <primitive object={nodes.Shelf2} />
@@ -117,13 +121,46 @@ const Scene = (props: { setPageTitle?: (pageTitle: string) => void }) => {
             <primitive object={nodes.Cup2} />
           </group>
           <Link routePath="/box/1" description="Go to box 1">
-            <Box position={[-1.2, 0, 0]} />
+            <Float
+              floatIntensity={1}
+              rotationIntensity={1}
+              position={[-0.5, 1, 0]}
+            >
+              <Clickable>
+                <mesh>
+                  <boxGeometry args={[0.3, 0.3, 0.3]} />
+                  <meshStandardMaterial color="red" />
+                </mesh>
+              </Clickable>
+            </Float>
           </Link>
           <Link routePath="/box/2" description="Go to box 2">
-            <Box position={[1.2, 0, 0]} />
+            <Float
+              floatIntensity={1}
+              rotationIntensity={1}
+              position={[0, 1, 0]}
+            >
+              <Clickable>
+                <mesh>
+                  <boxGeometry args={[0.3, 0.3, 0.3]} />
+                  <meshStandardMaterial color="green" />
+                </mesh>
+              </Clickable>
+            </Float>
           </Link>
           <Link routePath="/box/3" description="Go to box 3">
-            <Box position={[1.2, 2.4, 0]} />
+            <Float
+              floatIntensity={1}
+              rotationIntensity={1}
+              position={[0.5, 1, 0]}
+            >
+              <Clickable>
+                <mesh>
+                  <boxGeometry args={[0.3, 0.3, 0.3]} />
+                  <meshStandardMaterial color="blue" />
+                </mesh>
+              </Clickable>
+            </Float>
           </Link>
         </Router>
       </Canvas>
