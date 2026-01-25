@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Vector3 } from "three";
 import { useFrame } from "@react-three/fiber";
-import { useLocation } from "wouter";
+import { useBrowserLocation } from "wouter/use-browser-location";
 
 export interface RouteMap {
   [path: string]: Route;
@@ -30,7 +30,7 @@ const Router = (props: {
   routes: RouteMap;
   setPageTitle?: (pageTitle: string) => void;
 }) => {
-  const [location] = useLocation();
+  const [location] = useBrowserLocation();
   const [activeRoute, setActiveRoute] = useState<Route>({
     cameraPosition: new Vector3(0, 0, 0),
     cameraTarget: new Vector3(0, 0, 0),

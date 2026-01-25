@@ -1,4 +1,5 @@
-import { Route, Switch, useLocation } from "wouter";
+import { Route, Switch } from "wouter";
+import { useBrowserLocation } from "wouter/use-browser-location";
 import AppBackground from "./components/app-background";
 import Header from "./components/header";
 import HomePage from "./pages/home-page";
@@ -9,7 +10,7 @@ import Error404Page from "./pages/error-404-page";
 import useCanonicalLink from "./hooks/canonical-link";
 
 const App = () => {
-  const [location] = useLocation();
+  const [location] = useBrowserLocation();
   useCanonicalLink("www.mtmilo.net" + location.replace(/\/+$/, ""));
 
   return (
@@ -29,7 +30,7 @@ const App = () => {
           <Route path="/blog/:blogId">
             <BlogArticlePage />
           </Route>
-          <Route path="/interactive/:_*">
+          <Route path="/interactive" nest>
             <InteractivePage />
           </Route>
           <Route>

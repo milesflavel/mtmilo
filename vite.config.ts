@@ -5,10 +5,6 @@ import Sitemap from "vite-plugin-sitemap";
 import { visualizer } from "rollup-plugin-visualizer";
 import blogIndex from "./public/blog/index.json";
 
-const ReactCompilerConfig = {
-  target: "18",
-};
-
 const getRoute = (entry) => `/blog/${entry.id}`;
 const getLastModified = (entry) => new Date(entry.modified);
 
@@ -22,7 +18,7 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
+        plugins: [["babel-plugin-react-compiler"]],
       },
     }),
     svgr(),
