@@ -3,11 +3,11 @@ import Pane from "../components/pane";
 import HeaderLink from "../components/header-link";
 import Icon from "../components/icon";
 import LogoMtmiloSvg from "../assets/images/logo-mtmilo.svg?react";
-import useLocation from "wouter/use-location";
+import { useBrowserLocation } from "wouter/use-browser-location";
 
 const Header = () => {
   const [navMenuOpen, setNavMenuOpen] = useState(false);
-  const [location] = useLocation();
+  const [location] = useBrowserLocation();
 
   useEffect(() => {
     setNavMenuOpen(false);
@@ -57,7 +57,7 @@ const Header = () => {
       </div>
       {navMenuOpen && (
         <div
-          className="absolute left-0 top-0 -m-4 h-screen-dvh w-screen-dvw pt-24 sm:hidden"
+          className="h-screen-dvh w-screen-dvw absolute top-0 left-0 -m-4 pt-24 sm:hidden"
           onClick={() => setNavMenuOpen(false)}
         >
           <div className="flex flex-col items-center gap-4 bg-purple-900 p-4">

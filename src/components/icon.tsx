@@ -1,14 +1,14 @@
-import BurgerMenuSvg from "../assets/images/icons/burger-menu.svg";
-import CloseSvg from "../assets/images/icons/close.svg";
-import GithubSvg from "../assets/images/icons/github.svg";
-import TwitterSvg from "../assets/images/icons/twitter.svg";
-import BlueskySvg from "../assets/images/icons/bluesky.svg";
-import FullscreenEnableSvg from "../assets/images/icons/fullscreen-enable.svg";
-import FullscreenDisableSvg from "../assets/images/icons/fullscreen-disable.svg";
-import ChevronLeftSvg from "../assets/images/icons/chevron-left.svg";
-import ChevronRightSvg from "../assets/images/icons/chevron-right.svg";
-import ChevronUpSvg from "../assets/images/icons/chevron-up.svg";
-import ChevronDownSvg from "../assets/images/icons/chevron-down.svg";
+import BurgerMenuSvg from "../assets/images/icons/burger-menu.svg?url&no-inline";
+import CloseSvg from "../assets/images/icons/close.svg?url&no-inline";
+import GithubSvg from "../assets/images/icons/github.svg?url&no-inline";
+import TwitterSvg from "../assets/images/icons/twitter.svg?url&no-inline";
+import BlueskySvg from "../assets/images/icons/bluesky.svg?url&no-inline";
+import FullscreenEnableSvg from "../assets/images/icons/fullscreen-enable.svg?url&no-inline";
+import FullscreenDisableSvg from "../assets/images/icons/fullscreen-disable.svg?url&no-inline";
+import ChevronLeftSvg from "../assets/images/icons/chevron-left.svg?url&no-inline";
+import ChevronRightSvg from "../assets/images/icons/chevron-right.svg?url&no-inline";
+import ChevronUpSvg from "../assets/images/icons/chevron-up.svg?url&no-inline";
+import ChevronDownSvg from "../assets/images/icons/chevron-down.svg?url&no-inline";
 
 const ICONS = {
   burgerMenu: BurgerMenuSvg,
