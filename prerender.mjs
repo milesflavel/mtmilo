@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import blogIndex from "./public/blog/index.json" assert { type: "json" };
+import blogIndex from "./public/blog/index.json" with { type: "json" };
 import fs from "fs";
 import { build, preview } from "vite";
 

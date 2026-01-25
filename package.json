@@ -1,7 +1,10 @@
 {
   "name": "mtmilo-app",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "mtmilo.net web app",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
